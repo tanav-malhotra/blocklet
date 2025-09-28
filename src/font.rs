@@ -69,7 +69,7 @@ fn create_standard_shadow_font() -> Font {
         width: 7,
         height: 6,
         data: vec![
-            " █████╗".to_string(),
+            " █████╗ ".to_string(),
             "██╔══██╗".to_string(),
             "███████║".to_string(),
             "██╔══██║".to_string(),
@@ -88,7 +88,7 @@ fn create_standard_shadow_font() -> Font {
             "██████╔╝".to_string(),
             "██╔══██╗".to_string(),
             "██████╔╝".to_string(),
-            "╚══════╝".to_string(),
+            "╚═════╝ ".to_string(),
         ],
     });
     
@@ -192,53 +192,57 @@ fn create_standard_shadow_font() -> Font {
     
     // Letter J
     characters.insert('J', FontCharacter {
-        width: 4,
-        height: 5,
+        width: 7,
+        height: 6,
         data: vec![
-            "████".to_string(),
-            "   █".to_string(),
-            "   █".to_string(),
-            "█  █".to_string(),
-            " ██ ".to_string(),
+            "     ██╗".to_string(),
+            "     ██║".to_string(),
+            "     ██║".to_string(),
+            "██   ██║".to_string(),
+            "╚██████╔╝".to_string(),
+            " ╚═════╝ ".to_string(),
         ],
     });
     
     // Letter K
     characters.insert('K', FontCharacter {
-        width: 5,
-        height: 5,
+        width: 8,
+        height: 6,
         data: vec![
-            "█  █ ".to_string(),
-            "█ █  ".to_string(),
-            "██   ".to_string(),
-            "█ █  ".to_string(),
-            "█  █ ".to_string(),
+            "██╗  ██╗".to_string(),
+            "██║ ██╔╝".to_string(),
+            "█████╔╝ ".to_string(),
+            "██╔═██╗ ".to_string(),
+            "██║  ██╗".to_string(),
+            "╚═╝  ╚═╝".to_string(),
         ],
     });
     
     // Letter L
     characters.insert('L', FontCharacter {
-        width: 4,
-        height: 5,
+        width: 7,
+        height: 6,
         data: vec![
-            "█   ".to_string(),
-            "█   ".to_string(),
-            "█   ".to_string(),
-            "█   ".to_string(),
-            "████".to_string(),
+            "██╗     ".to_string(),
+            "██║     ".to_string(),
+            "██║     ".to_string(),
+            "██║     ".to_string(),
+            "███████╗".to_string(),
+            "╚══════╝".to_string(),
         ],
     });
     
     // Letter M
     characters.insert('M', FontCharacter {
-        width: 7,
-        height: 5,
+        width: 11,
+        height: 6,
         data: vec![
-            "█     █".to_string(),
-            "██   ██".to_string(),
-            "█ █ █ █".to_string(),
-            "█  █  █".to_string(),
-            "█     █".to_string(),
+            "███╗   ███╗".to_string(),
+            "████╗ ████║".to_string(),
+            "██╔████╔██║".to_string(),
+            "██║╚██╔╝██║".to_string(),
+            "██║ ╚═╝ ██║".to_string(),
+            "╚═╝     ╚═╝".to_string(),
         ],
     });
     
@@ -261,7 +265,7 @@ fn create_standard_shadow_font() -> Font {
         width: 8,
         height: 6,
         data: vec![
-            " ██████╗".to_string(),
+            " ██████╗ ".to_string(),
             "██╔═══██╗".to_string(),
             "██║   ██║".to_string(),
             "██║   ██║".to_string(),
@@ -272,27 +276,29 @@ fn create_standard_shadow_font() -> Font {
     
     // Letter P
     characters.insert('P', FontCharacter {
-        width: 5,
-        height: 5,
+        width: 8,
+        height: 6,
         data: vec![
-            "████ ".to_string(),
-            "█   █".to_string(),
-            "████ ".to_string(),
-            "█    ".to_string(),
-            "█    ".to_string(),
+            "██████╗ ".to_string(),
+            "██╔══██╗".to_string(),
+            "██████╔╝".to_string(),
+            "██╔═══╝ ".to_string(),
+            "██║     ".to_string(),
+            "╚═╝     ".to_string(),
         ],
     });
     
     // Letter Q
     characters.insert('Q', FontCharacter {
-        width: 5,
-        height: 5,
+        width: 9,
+        height: 6,
         data: vec![
-            " ███ ".to_string(),
-            "█   █".to_string(),
-            "█ █ █".to_string(),
-            "█  █ ".to_string(),
-            " ████".to_string(),
+            " ██████╗ ".to_string(),
+            "██╔═══██╗".to_string(),
+            "██║   ██║".to_string(),
+            "██║▄▄ ██║".to_string(),
+            "╚██████╔╝".to_string(),
+            " ╚══▀▀═╝ ".to_string(),
         ],
     });
     
@@ -312,27 +318,29 @@ fn create_standard_shadow_font() -> Font {
     
     // Letter S
     characters.insert('S', FontCharacter {
-        width: 5,
-        height: 5,
+        width: 8,
+        height: 6,
         data: vec![
-            " ████".to_string(),
-            "█    ".to_string(),
-            " ███ ".to_string(),
-            "    █".to_string(),
-            "████ ".to_string(),
+            "███████╗".to_string(),
+            "██╔════╝".to_string(),
+            "███████╗".to_string(),
+            "╚════██║".to_string(),
+            "███████║".to_string(),
+            "╚══════╝".to_string(),
         ],
     });
     
     // Letter T
     characters.insert('T', FontCharacter {
-        width: 5,
-        height: 5,
+        width: 9,
+        height: 6,
         data: vec![
-            "█████".to_string(),
-            "  █  ".to_string(),
-            "  █  ".to_string(),
-            "  █  ".to_string(),
-            "  █  ".to_string(),
+            "████████╗".to_string(),
+            "╚══██╔══╝".to_string(),
+            "   ██║   ".to_string(),
+            "   ██║   ".to_string(),
+            "   ██║   ".to_string(),
+            "   ╚═╝   ".to_string(),
         ],
     });
     
@@ -352,236 +360,255 @@ fn create_standard_shadow_font() -> Font {
     
     // Letter V
     characters.insert('V', FontCharacter {
-        width: 5,
-        height: 5,
+        width: 9,
+        height: 6,
         data: vec![
-            "█   █".to_string(),
-            "█   █".to_string(),
-            "█   █".to_string(),
-            " █ █ ".to_string(),
-            "  █  ".to_string(),
+            "██╗   ██╗".to_string(),
+            "██║   ██║".to_string(),
+            "██║   ██║".to_string(),
+            "╚██╗ ██╔╝".to_string(),
+            " ╚████╔╝ ".to_string(),
+            "  ╚══╝  ".to_string(),
         ],
     });
     
     // Letter W
     characters.insert('W', FontCharacter {
-        width: 7,
-        height: 5,
+        width: 11,
+        height: 6,
         data: vec![
-            "█     █".to_string(),
-            "█     █".to_string(),
-            "█  █  █".to_string(),
-            "█ █ █ █".to_string(),
-            " █   █ ".to_string(),
+            "██╗    ██╗".to_string(),
+            "██║    ██║".to_string(),
+            "██║ █╗ ██║".to_string(),
+            "██║███╗██║".to_string(),
+            "╚███╔███╔╝".to_string(),
+            " ╚══╝╚══╝ ".to_string(),
         ],
     });
     
     // Letter X
     characters.insert('X', FontCharacter {
-        width: 5,
-        height: 5,
+        width: 9,
+        height: 6,
         data: vec![
-            "█   █".to_string(),
-            " █ █ ".to_string(),
-            "  █  ".to_string(),
-            " █ █ ".to_string(),
-            "█   █".to_string(),
+            "██╗  ██╗".to_string(),
+            "╚██╗██╔╝".to_string(),
+            " ╚███╔╝ ".to_string(),
+            " ██╔██╗ ".to_string(),
+            "██╔╝ ██╗".to_string(),
+            "╚═╝  ╚═╝".to_string(),
         ],
     });
     
     // Letter Y
     characters.insert('Y', FontCharacter {
-        width: 5,
-        height: 5,
+        width: 9,
+        height: 6,
         data: vec![
-            "█   █".to_string(),
-            " █ █ ".to_string(),
-            "  █  ".to_string(),
-            "  █  ".to_string(),
-            "  █  ".to_string(),
+            "██╗   ██╗".to_string(),
+            "╚██╗ ██╔╝".to_string(),
+            " ╚████╔╝ ".to_string(),
+            "  ╚██╔╝  ".to_string(),
+            "   ██║   ".to_string(),
+            "   ╚═╝   ".to_string(),
         ],
     });
     
     // Letter Z
     characters.insert('Z', FontCharacter {
-        width: 5,
-        height: 5,
+        width: 8,
+        height: 6,
         data: vec![
-            "█████".to_string(),
-            "   █ ".to_string(),
-            "  █  ".to_string(),
-            " █   ".to_string(),
-            "█████".to_string(),
+            "███████╗".to_string(),
+            "╚════██║".to_string(),
+            "    ██╔╝".to_string(),
+            "   ██╔╝ ".to_string(),
+            "  ██╔╝  ".to_string(),
+            "  ╚═╝   ".to_string(),
         ],
     });
     
     // Numbers 0-9
     characters.insert('0', FontCharacter {
-        width: 5,
-        height: 5,
+        width: 8,
+        height: 6,
         data: vec![
-            " ███ ".to_string(),
-            "█  ██".to_string(),
-            "█ █ █".to_string(),
-            "██  █".to_string(),
-            " ███ ".to_string(),
+            " ██████╗ ".to_string(),
+            "██╔═══██╗".to_string(),
+            "██║██╗██║".to_string(),
+            "██║╚██╝██║".to_string(),
+            "╚██████╔╝".to_string(),
+            " ╚═════╝ ".to_string(),
         ],
     });
     
     characters.insert('1', FontCharacter {
-        width: 3,
-        height: 5,
+        width: 5,
+        height: 6,
         data: vec![
-            " █ ".to_string(),
-            "██ ".to_string(),
-            " █ ".to_string(),
-            " █ ".to_string(),
-            "███".to_string(),
+            " ██╗ ".to_string(),
+            "███║ ".to_string(),
+            "╚██║ ".to_string(),
+            " ██║ ".to_string(),
+            " ██║ ".to_string(),
+            " ╚═╝ ".to_string(),
         ],
     });
     
     characters.insert('2', FontCharacter {
-        width: 5,
-        height: 5,
+        width: 8,
+        height: 6,
         data: vec![
-            " ███ ".to_string(),
-            "█   █".to_string(),
-            "   █ ".to_string(),
-            "  █  ".to_string(),
-            "█████".to_string(),
+            "██████╗ ".to_string(),
+            "╚════██╗".to_string(),
+            " █████╔╝".to_string(),
+            "██╔═══╝ ".to_string(),
+            "███████╗".to_string(),
+            "╚══════╝".to_string(),
         ],
     });
     
     characters.insert('3', FontCharacter {
-        width: 5,
-        height: 5,
+        width: 8,
+        height: 6,
         data: vec![
-            " ███ ".to_string(),
-            "    █".to_string(),
-            " ███ ".to_string(),
-            "    █".to_string(),
-            " ███ ".to_string(),
+            "██████╗ ".to_string(),
+            "╚════██╗".to_string(),
+            " █████╔╝".to_string(),
+            " ╚═══██╗".to_string(),
+            "██████╔╝".to_string(),
+            "╚═════╝ ".to_string(),
         ],
     });
     
     characters.insert('4', FontCharacter {
-        width: 5,
-        height: 5,
+        width: 8,
+        height: 6,
         data: vec![
-            "█   █".to_string(),
-            "█   █".to_string(),
-            "█████".to_string(),
-            "    █".to_string(),
-            "    █".to_string(),
+            "██╗  ██╗".to_string(),
+            "██║  ██║".to_string(),
+            "███████║".to_string(),
+            "╚════██║".to_string(),
+            "     ██║".to_string(),
+            "     ╚═╝".to_string(),
         ],
     });
     
     characters.insert('5', FontCharacter {
-        width: 5,
-        height: 5,
+        width: 8,
+        height: 6,
         data: vec![
-            "█████".to_string(),
-            "█    ".to_string(),
-            "████ ".to_string(),
-            "    █".to_string(),
-            "████ ".to_string(),
+            "███████╗".to_string(),
+            "██╔════╝".to_string(),
+            "███████╗".to_string(),
+            "╚════██║".to_string(),
+            "███████║".to_string(),
+            "╚══════╝".to_string(),
         ],
     });
     
     characters.insert('6', FontCharacter {
-        width: 5,
-        height: 5,
+        width: 8,
+        height: 6,
         data: vec![
-            " ███ ".to_string(),
-            "█    ".to_string(),
-            "████ ".to_string(),
-            "█   █".to_string(),
-            " ███ ".to_string(),
+            " ██████╗ ".to_string(),
+            "██╔════╝ ".to_string(),
+            "██████╗  ".to_string(),
+            "██╔═══██╗".to_string(),
+            "╚██████╔╝".to_string(),
+            " ╚═════╝ ".to_string(),
         ],
     });
     
     characters.insert('7', FontCharacter {
-        width: 5,
-        height: 5,
+        width: 8,
+        height: 6,
         data: vec![
-            "█████".to_string(),
-            "    █".to_string(),
-            "   █ ".to_string(),
-            "  █  ".to_string(),
-            " █   ".to_string(),
+            "███████╗".to_string(),
+            "╚══════██║".to_string(),
+            "      ██╔╝".to_string(),
+            "     ██╔╝ ".to_string(),
+            "    ██╔╝  ".to_string(),
+            "    ╚═╝   ".to_string(),
         ],
     });
     
     characters.insert('8', FontCharacter {
-        width: 5,
-        height: 5,
+        width: 8,
+        height: 6,
         data: vec![
-            " ███ ".to_string(),
-            "█   █".to_string(),
-            " ███ ".to_string(),
-            "█   █".to_string(),
-            " ███ ".to_string(),
+            " █████╗ ".to_string(),
+            "██╔══██╗".to_string(),
+            "╚█████╔╝".to_string(),
+            "██╔══██╗".to_string(),
+            "╚█████╔╝".to_string(),
+            " ╚════╝ ".to_string(),
         ],
     });
     
     characters.insert('9', FontCharacter {
-        width: 5,
-        height: 5,
+        width: 8,
+        height: 6,
         data: vec![
-            " ███ ".to_string(),
-            "█   █".to_string(),
-            " ████".to_string(),
-            "    █".to_string(),
-            " ███ ".to_string(),
+            " █████╗ ".to_string(),
+            "██╔══██╗".to_string(),
+            "╚██████║".to_string(),
+            " ╚═══██║".to_string(),
+            " █████╔╝".to_string(),
+            " ╚════╝ ".to_string(),
         ],
     });
     
-    // Some basic punctuation
+    // Basic punctuation with 6-line shadow format
     characters.insert('!', FontCharacter {
-        width: 1,
-        height: 5,
+        width: 3,
+        height: 6,
         data: vec![
-            "█".to_string(),
-            "█".to_string(),
-            "█".to_string(),
-            " ".to_string(),
-            "█".to_string(),
+            "██╗".to_string(),
+            "██║".to_string(),
+            "██║".to_string(),
+            "╚═╝".to_string(),
+            "██╗".to_string(),
+            "╚═╝".to_string(),
         ],
     });
     
     characters.insert('?', FontCharacter {
-        width: 5,
-        height: 5,
+        width: 8,
+        height: 6,
         data: vec![
-            " ███ ".to_string(),
-            "    █".to_string(),
-            "  ██ ".to_string(),
-            "     ".to_string(),
-            "  █  ".to_string(),
+            "██████╗ ".to_string(),
+            "╚═════██╗".to_string(),
+            "    ██╔╝".to_string(),
+            "    ╚═╝ ".to_string(),
+            "    ██╗ ".to_string(),
+            "    ╚═╝ ".to_string(),
         ],
     });
     
     characters.insert('.', FontCharacter {
-        width: 1,
-        height: 5,
+        width: 3,
+        height: 6,
         data: vec![
-            " ".to_string(),
-            " ".to_string(),
-            " ".to_string(),
-            " ".to_string(),
-            "█".to_string(),
+            "   ".to_string(),
+            "   ".to_string(),
+            "   ".to_string(),
+            "   ".to_string(),
+            "██╗".to_string(),
+            "╚═╝".to_string(),
         ],
     });
     
     characters.insert(',', FontCharacter {
-        width: 2,
-        height: 5,
+        width: 3,
+        height: 6,
         data: vec![
-            "  ".to_string(),
-            "  ".to_string(),
-            "  ".to_string(),
-            " █".to_string(),
-            "█ ".to_string(),
+            "   ".to_string(),
+            "   ".to_string(),
+            "   ".to_string(),
+            "   ".to_string(),
+            "▄██".to_string(),
+            "▀╚═".to_string(),
         ],
     });
     
