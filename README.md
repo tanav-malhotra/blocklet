@@ -2,7 +2,7 @@
 
 A cross-platform CLI tool that generates ASCII art using Unicode block characters, similar to figlet but with beautiful solid Unicode blocks instead of outlines or hash symbols.
 
-[![Rust](https://github.com/tanav-malhotra/blocklet/workflows/Rust/badge.svg)](https://github.com/tanav-malhotra/blocklet/actions)
+[![Rust](https://github.com/tanav-malhotra/blocklet/workflows/CI/badge.svg)](https://github.com/tanav-malhotra/blocklet/actions)
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 ## ✨ Features
