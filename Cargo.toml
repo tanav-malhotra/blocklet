@@ -1,0 +1,25 @@
+[package]
+name = "unicode-figlet"
+version = "0.1.0"
+edition = "2021"
+authors = ["Your Name <your.email@example.com>"]
+description = "A cross-platform CLI tool that generates ASCII art using Unicode block characters"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+homepage = "https://github.com/yourusername/unicode-figlet"
+repository = "https://github.com/yourusername/unicode-figlet"
+keywords = ["cli", "ascii-art", "figlet", "unicode", "terminal"]
+categories = ["command-line-utilities", "text-processing"]
+
+[dependencies]
+clap = { version = "4.4", features = ["derive"] }
+anyhow = "1.0"
+thiserror = "1.0"
+lazy_static = "1.4"
+
+[dev-dependencies]
+criterion = { version = "0.5", features = ["html_reports"] }
+
+[[bench]]
+name = "rendering"
+harness = false
