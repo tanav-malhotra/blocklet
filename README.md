@@ -2,8 +2,8 @@
 
 A cross-platform CLI tool that generates ASCII art using Unicode block characters, similar to figlet but with beautiful solid Unicode blocks instead of outlines or hash symbols.
 
-[![Rust](https://github.com/yourusername/blocklet/workflows/Rust/badge.svg)](https://github.com/yourusername/blocklet/actions)
-[![License: MIT OR Apache-2.0](https://img.shields.io/badge/License-MIT%20OR%20Apache--2.0-blue.svg)](https://opensource.org/licenses/MIT)
+[![Rust](https://github.com/tanav-malhotra/blocklet/workflows/Rust/badge.svg)](https://github.com/tanav-malhotra/blocklet/actions)
+[![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 ## ✨ Features
 
@@ -26,9 +26,9 @@ cargo install blocklet
 
 Or build from source:
 ```bash
-git clone https://github.com/yourusername/blocklet.git
+git clone https://github.com/tanav-malhotra/blocklet.git
 cd blocklet
-cargo build --release
+cargo install --path .
 ```
 
 ### Basic Usage
@@ -45,49 +45,6 @@ blocklet "Clean Text" -n
 
 # With width limiting (word wrapping)
 blocklet "This is a long text that will wrap" --width 40
-```
-
-## 📖 Examples
-
-### With Drop-Shadow (Default)
-```bash
-blocklet "HELLO"
-```
-Output:
-```
-█   █ ████ █    █     ███ 
-█   █ █    █    █    █   █
-█████ ███  █    █    █   █
-█   █ █    █    █    █   █
-█   █ ████ ████ ████  ███ 
- ▓   ▓ ▓▓▓▓ ▓▓▓▓ ▓▓▓▓  ▓▓▓ 
-```
-
-### Without Drop-Shadow
-```bash
-blocklet "HELLO" -n
-```
-Output:
-```
-█   █ ████ █    █     ███ 
-█   █ █    █    █    █   █
-█████ ███  █    █    █   █
-█   █ █    █    █    █   █
-█   █ ████ ████ ████  ███ 
-```
-
-
-### With Numbers and Mixed Content
-```bash
-blocklet "CODE 2024"
-```
-Output:
-```
- ███   ███  ████  ████     ████   ███   ████  █   █
-█     █   █ █   █ █            █ █   █     █  █   █
-█     █   █ █   █ ████      ████  █████   █   █████
-█     █   █ █   █ █         █     █   █  █    █   █
- ███   ███  ████  ████      ████  █   █ ████  █   █
 ```
 
 ## 🔧 Command Line Options
@@ -128,17 +85,6 @@ Blocklet uses a single, well-tuned `standard` Unicode block font optimized for r
    - Command-line argument parsing
    - Font selection and options
    - Error handling
-
-### Unicode Block Characters Used
-
-- `█` (U+2588) - Full Block
-- `▀` (U+2580) - Upper Half Block
-- `▄` (U+2584) - Lower Half Block
-- `▌` (U+258C) - Left Half Block
-- `▐` (U+2590) - Right Half Block
-- `░` (U+2591) - Light Shade
-- `▒` (U+2592) - Medium Shade
-- `▓` (U+2593) - Dark Shade
 
 ## 🧪 Testing
 
@@ -187,9 +133,9 @@ We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guid
 
 2. **Clone and build**:
    ```bash
-   git clone https://github.com/yourusername/blocklet.git
+   git clone https://github.com/tanav-malhotra/blocklet.git
    cd blocklet
-   cargo build
+   cargo install --path .
    ```
 
 3. **Run tests**:
@@ -213,10 +159,9 @@ We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guid
 
 ## 📜 License
 
-This project is dual-licensed under either:
+This project is licensed under the GNU General Public License v3.0.
 
-- MIT License ([LICENSE-MIT](LICENSE-MIT) or [https://opensource.org/licenses/MIT](https://opensource.org/licenses/MIT))
-- Apache License 2.0 ([LICENSE-APACHE](LICENSE-APACHE) or [https://www.apache.org/licenses/LICENSE-2.0](https://www.apache.org/licenses/LICENSE-2.0))
+See [LICENSE](LICENSE) or [https://www.gnu.org/licenses/gpl-3.0.html](https://www.gnu.org/licenses/gpl-3.0.html) for details.
 
 at your option.
 
@@ -240,7 +185,7 @@ at your option.
 
 ### Q: How do I report bugs or request features?
 
-**A**: Please open an issue on our [GitHub repository](https://github.com/yourusername/blocklet/issues).
+**A**: Please open an issue on our [GitHub repository](https://github.com/tanav-malhotra/blocklet/issues).
 
 ## 🔗 Related Projects
 
