@@ -46,15 +46,16 @@ pub const LIGHT_SHADE: char = '░';
 pub const MEDIUM_SHADE: char = '▒';
 pub const DARK_SHADE: char = '▓';
 
-/// Create the standard font with Unicode block characters
-fn create_standard_font() -> Font {
+/// Create the shadow font with Unicode box drawing characters and built-in shadows  
+fn create_standard_shadow_font() -> Font {
     let mut characters = HashMap::new();
     
     // Space character
     characters.insert(' ', FontCharacter {
         width: 3,
-        height: 5,
+        height: 6,
         data: vec![
+            "   ".to_string(),
             "   ".to_string(),
             "   ".to_string(),
             "   ".to_string(),
@@ -65,118 +66,127 @@ fn create_standard_font() -> Font {
     
     // Letter A
     characters.insert('A', FontCharacter {
-        width: 5,
-        height: 5,
+        width: 7,
+        height: 6,
         data: vec![
-            " ███ ".to_string(),
-            "█   █".to_string(),
-            "█████".to_string(),
-            "█   █".to_string(),
-            "█   █".to_string(),
+            " █████╗".to_string(),
+            "██╔══██╗".to_string(),
+            "███████║".to_string(),
+            "██╔══██║".to_string(),
+            "██║  ██║".to_string(),
+            "╚═╝  ╚═╝".to_string(),
         ],
     });
     
-    // Letter B
+    // Letter B  
     characters.insert('B', FontCharacter {
-        width: 5,
-        height: 5,
+        width: 8,
+        height: 6,
         data: vec![
-            "████ ".to_string(),
-            "█   █".to_string(),
-            "████ ".to_string(),
-            "█   █".to_string(),
-            "████ ".to_string(),
+            "██████╗ ".to_string(),
+            "██╔══██╗".to_string(),
+            "██████╔╝".to_string(),
+            "██╔══██╗".to_string(),
+            "██████╔╝".to_string(),
+            "╚══════╝".to_string(),
         ],
     });
     
     // Letter C
     characters.insert('C', FontCharacter {
-        width: 5,
-        height: 5,
+        width: 9,
+        height: 6,
         data: vec![
-            " ███ ".to_string(),
-            "█    ".to_string(),
-            "█    ".to_string(),
-            "█    ".to_string(),
-            " ███ ".to_string(),
+            " ██████╗ ".to_string(),
+            "██╔════╝ ".to_string(),
+            "██║      ".to_string(),
+            "██║      ".to_string(),
+            "╚██████╗ ".to_string(),
+            " ╚═════╝ ".to_string(),
         ],
     });
     
     // Letter D
     characters.insert('D', FontCharacter {
-        width: 5,
-        height: 5,
+        width: 8,
+        height: 6,
         data: vec![
-            "████ ".to_string(),
-            "█   █".to_string(),
-            "█   █".to_string(),
-            "█   █".to_string(),
-            "████ ".to_string(),
+            "██████╗ ".to_string(),
+            "██╔══██╗".to_string(),
+            "██║  ██║".to_string(),
+            "██║  ██║".to_string(),
+            "██████╔╝".to_string(),
+            "╚═════╝ ".to_string(),
         ],
     });
     
     // Letter E
     characters.insert('E', FontCharacter {
-        width: 4,
-        height: 5,
+        width: 7,
+        height: 6,
         data: vec![
-            "████".to_string(),
-            "█   ".to_string(),
-            "███ ".to_string(),
-            "█   ".to_string(),
-            "████".to_string(),
+            "███████".to_string(),
+            "██╔════".to_string(),
+            "█████  ".to_string(),
+            "██╔══  ".to_string(),
+            "███████".to_string(),
+            "╚═════╝".to_string(),
         ],
     });
     
     // Letter F
     characters.insert('F', FontCharacter {
-        width: 4,
-        height: 5,
+        width: 7,
+        height: 6,
         data: vec![
-            "████".to_string(),
-            "█   ".to_string(),
-            "███ ".to_string(),
-            "█   ".to_string(),
-            "█   ".to_string(),
+            "███████".to_string(),
+            "██╔════".to_string(),
+            "█████  ".to_string(),
+            "██╔══  ".to_string(),
+            "██║    ".to_string(),
+            "╚═╝    ".to_string(),
         ],
     });
     
     // Letter G
     characters.insert('G', FontCharacter {
-        width: 5,
-        height: 5,
+        width: 9,
+        height: 6,
         data: vec![
-            " ███ ".to_string(),
-            "█    ".to_string(),
-            "█ ██ ".to_string(),
-            "█  █ ".to_string(),
-            " ███ ".to_string(),
+            " ██████╗ ".to_string(),
+            "██╔════╝ ".to_string(),
+            "██║  ███╗".to_string(),
+            "██║   ██║".to_string(),
+            "╚██████╔╝".to_string(),
+            " ╚═════╝ ".to_string(),
         ],
     });
     
     // Letter H
     characters.insert('H', FontCharacter {
-        width: 5,
-        height: 5,
+        width: 8,
+        height: 6,
         data: vec![
-            "█   █".to_string(),
-            "█   █".to_string(),
-            "█████".to_string(),
-            "█   █".to_string(),
-            "█   █".to_string(),
+            "██╗   ██╗".to_string(),
+            "██║   ██║".to_string(),
+            "███████║".to_string(),
+            "██╔══██║".to_string(),
+            "██║  ██║".to_string(),
+            "╚═╝  ╚═╝".to_string(),
         ],
     });
     
     // Letter I
     characters.insert('I', FontCharacter {
         width: 3,
-        height: 5,
+        height: 6,
         data: vec![
-            "███".to_string(),
-            " █ ".to_string(),
-            " █ ".to_string(),
-            " █ ".to_string(),
-            "███".to_string(),
+            "██╗".to_string(),
+            "██║".to_string(),
+            "██║".to_string(),
+            "██║".to_string(),
+            "██║".to_string(),
+            "╚═╝".to_string(),
         ],
     });
     
@@ -234,27 +244,29 @@ fn create_standard_font() -> Font {
     
     // Letter N
     characters.insert('N', FontCharacter {
-        width: 5,
-        height: 5,
+        width: 9,
+        height: 6,
         data: vec![
-            "█   █".to_string(),
-            "██  █".to_string(),
-            "█ █ █".to_string(),
-            "█  ██".to_string(),
-            "█   █".to_string(),
+            "███╗   ██╗".to_string(),
+            "████╗  ██║".to_string(),
+            "██╔██╗ ██║".to_string(),
+            "██║╚██╗██║".to_string(),
+            "██║ ╚████║".to_string(),
+            "╚═╝  ╚═══╝".to_string(),
         ],
     });
     
     // Letter O
     characters.insert('O', FontCharacter {
-        width: 5,
-        height: 5,
+        width: 8,
+        height: 6,
         data: vec![
-            " ███ ".to_string(),
-            "█   █".to_string(),
-            "█   █".to_string(),
-            "█   █".to_string(),
-            " ███ ".to_string(),
+            " ██████╗".to_string(),
+            "██╔═══██╗".to_string(),
+            "██║   ██║".to_string(),
+            "██║   ██║".to_string(),
+            "╚██████╔╝".to_string(),
+            " ╚═════╝ ".to_string(),
         ],
     });
     
@@ -286,14 +298,15 @@ fn create_standard_font() -> Font {
     
     // Letter R
     characters.insert('R', FontCharacter {
-        width: 5,
-        height: 5,
+        width: 8,
+        height: 6,
         data: vec![
-            "████ ".to_string(),
-            "█   █".to_string(),
-            "████ ".to_string(),
-            "█ █  ".to_string(),
-            "█  █ ".to_string(),
+            "██████╗ ".to_string(),
+            "██╔══██╗".to_string(),
+            "██████╔╝".to_string(),
+            "██╔══██╗".to_string(),
+            "██║  ██║".to_string(),
+            "╚═╝  ╚═╝".to_string(),
         ],
     });
     
@@ -325,14 +338,15 @@ fn create_standard_font() -> Font {
     
     // Letter U
     characters.insert('U', FontCharacter {
-        width: 5,
-        height: 5,
+        width: 8,
+        height: 6,
         data: vec![
-            "█   █".to_string(),
-            "█   █".to_string(),
-            "█   █".to_string(),
-            "█   █".to_string(),
-            " ███ ".to_string(),
+            "██╗   ██╗".to_string(),
+            "██║   ██║".to_string(),
+            "██║   ██║".to_string(),
+            "██║   ██║".to_string(),
+            "╚██████╔╝".to_string(),
+            " ╚═════╝ ".to_string(),
         ],
     });
     
@@ -572,415 +586,559 @@ fn create_standard_font() -> Font {
     });
     
     Font {
-        name: "standard".to_string(),
-        description: "Standard Unicode block font".to_string(),
+        name: "standard_shadow".to_string(),
+        description: "Standard Unicode box drawing font with built-in shadows".to_string(),
+        height: 6,
+        characters,
+    }
+}
+
+/// Create the solid font without box drawing lines (no shadow version)
+fn create_standard_solid_font() -> Font {
+    let mut characters = HashMap::new();
+    
+    // Space character
+    characters.insert(' ', FontCharacter {
+        width: 3,
+        height: 5,
+        data: vec![
+            "   ".to_string(),
+            "   ".to_string(),
+            "   ".to_string(),
+            "   ".to_string(),
+            "   ".to_string(),
+        ],
+    });
+    
+    // Letter A - solid blocks
+    characters.insert('A', FontCharacter {
+        width: 6,
+        height: 5,
+        data: vec![
+            " █████".to_string(),
+            "██   ██".to_string(),
+            "███████".to_string(),
+            "██   ██".to_string(),
+            "██   ██".to_string(),
+        ],
+    });
+    
+    // Letter B - solid blocks
+    characters.insert('B', FontCharacter {
+        width: 7,
+        height: 5,
+        data: vec![
+            "███████ ".to_string(),
+            "██   ██".to_string(),
+            "██████ ".to_string(),
+            "██   ██".to_string(),
+            "███████ ".to_string(),
+        ],
+    });
+    
+    // Letter C - solid blocks
+    characters.insert('C', FontCharacter {
+        width: 7,
+        height: 5,
+        data: vec![
+            " ██████".to_string(),
+            "██     ".to_string(),
+            "██     ".to_string(),
+            "██     ".to_string(),
+            " ██████".to_string(),
+        ],
+    });
+    
+    // Letter D - solid blocks
+    characters.insert('D', FontCharacter {
+        width: 7,
+        height: 5,
+        data: vec![
+            "██████ ".to_string(),
+            "██   ██".to_string(),
+            "██   ██".to_string(),
+            "██   ██".to_string(),
+            "██████ ".to_string(),
+        ],
+    });
+    
+    // Letter E - solid blocks
+    characters.insert('E', FontCharacter {
+        width: 6,
+        height: 5,
+        data: vec![
+            "██████".to_string(),
+            "██    ".to_string(),
+            "██████".to_string(),
+            "██    ".to_string(),
+            "██████".to_string(),
+        ],
+    });
+    
+    // Letter F - solid blocks
+    characters.insert('F', FontCharacter {
+        width: 6,
+        height: 5,
+        data: vec![
+            "██████".to_string(),
+            "██    ".to_string(),
+            "██████".to_string(),
+            "██    ".to_string(),
+            "██    ".to_string(),
+        ],
+    });
+    
+    // Letter G - solid blocks
+    characters.insert('G', FontCharacter {
+        width: 7,
+        height: 5,
+        data: vec![
+            " ██████".to_string(),
+            "██     ".to_string(),
+            "██  ███".to_string(),
+            "██   ██".to_string(),
+            " ██████".to_string(),
+        ],
+    });
+    
+    // Letter H - solid blocks
+    characters.insert('H', FontCharacter {
+        width: 7,
+        height: 5,
+        data: vec![
+            "██   ██".to_string(),
+            "██   ██".to_string(),
+            "███████".to_string(),
+            "██   ██".to_string(),
+            "██   ██".to_string(),
+        ],
+    });
+    
+    // Letter I - solid blocks  
+    characters.insert('I', FontCharacter {
+        width: 3,
+        height: 5,
+        data: vec![
+            "███".to_string(),
+            " █ ".to_string(),
+            " █ ".to_string(),
+            " █ ".to_string(),
+            "███".to_string(),
+        ],
+    });
+    
+    // Letter J - solid blocks
+    characters.insert('J', FontCharacter {
+        width: 5,
+        height: 5,
+        data: vec![
+            "█████".to_string(),
+            "   ██".to_string(),
+            "   ██".to_string(),
+            "█  ██".to_string(),
+            " ███ ".to_string(),
+        ],
+    });
+    
+    // Letter K - solid blocks
+    characters.insert('K', FontCharacter {
+        width: 6,
+        height: 5,
+        data: vec![
+            "██  ██".to_string(),
+            "██ ██ ".to_string(),
+            "████  ".to_string(),
+            "██ ██ ".to_string(),
+            "██  ██".to_string(),
+        ],
+    });
+    
+    // Letter L - solid blocks
+    characters.insert('L', FontCharacter {
+        width: 5,
+        height: 5,
+        data: vec![
+            "██   ".to_string(),
+            "██   ".to_string(),
+            "██   ".to_string(),
+            "██   ".to_string(),
+            "█████".to_string(),
+        ],
+    });
+    
+    // Letter M - solid blocks
+    characters.insert('M', FontCharacter {
+        width: 7,
+        height: 5,
+        data: vec![
+            "██   ██".to_string(),
+            "███ ███".to_string(),
+            "██ █ ██".to_string(),
+            "██   ██".to_string(),
+            "██   ██".to_string(),
+        ],
+    });
+    
+    // Letter N - solid blocks
+    characters.insert('N', FontCharacter {
+        width: 7,
+        height: 5,
+        data: vec![
+            "██   ██".to_string(),
+            "███  ██".to_string(),
+            "██ █ ██".to_string(),
+            "██  ███".to_string(),
+            "██   ██".to_string(),
+        ],
+    });
+    
+    // Letter O - solid blocks
+    characters.insert('O', FontCharacter {
+        width: 7,
+        height: 5,
+        data: vec![
+            " █████ ".to_string(),
+            "██   ██".to_string(),
+            "██   ██".to_string(),
+            "██   ██".to_string(),
+            " █████ ".to_string(),
+        ],
+    });
+    
+    // Letter P - solid blocks
+    characters.insert('P', FontCharacter {
+        width: 6,
+        height: 5,
+        data: vec![
+            "██████".to_string(),
+            "██  ██".to_string(),
+            "██████".to_string(),
+            "██    ".to_string(),
+            "██    ".to_string(),
+        ],
+    });
+    
+    // Letter Q - solid blocks
+    characters.insert('Q', FontCharacter {
+        width: 7,
+        height: 5,
+        data: vec![
+            " █████ ".to_string(),
+            "██   ██".to_string(),
+            "██ █ ██".to_string(),
+            "██  ██ ".to_string(),
+            " ██████".to_string(),
+        ],
+    });
+    
+    // Letter R - solid blocks
+    characters.insert('R', FontCharacter {
+        width: 6,
+        height: 5,
+        data: vec![
+            "██████".to_string(),
+            "██  ██".to_string(),
+            "██████".to_string(),
+            "██ ██ ".to_string(),
+            "██  ██".to_string(),
+        ],
+    });
+    
+    // Letter S - solid blocks
+    characters.insert('S', FontCharacter {
+        width: 6,
+        height: 5,
+        data: vec![
+            " █████".to_string(),
+            "██    ".to_string(),
+            " ████ ".to_string(),
+            "    ██".to_string(),
+            "█████ ".to_string(),
+        ],
+    });
+    
+    // Letter T - solid blocks
+    characters.insert('T', FontCharacter {
+        width: 5,
+        height: 5,
+        data: vec![
+            "█████".to_string(),
+            "  █  ".to_string(),
+            "  █  ".to_string(),
+            "  █  ".to_string(),
+            "  █  ".to_string(),
+        ],
+    });
+    
+    // Letter U - solid blocks
+    characters.insert('U', FontCharacter {
+        width: 7,
+        height: 5,
+        data: vec![
+            "██   ██".to_string(),
+            "██   ██".to_string(),
+            "██   ██".to_string(),
+            "██   ██".to_string(),
+            " █████ ".to_string(),
+        ],
+    });
+    
+    // Letter V - solid blocks
+    characters.insert('V', FontCharacter {
+        width: 7,
+        height: 5,
+        data: vec![
+            "██   ██".to_string(),
+            "██   ██".to_string(),
+            "██   ██".to_string(),
+            " ██ ██ ".to_string(),
+            "  ███  ".to_string(),
+        ],
+    });
+    
+    // Letter W - solid blocks
+    characters.insert('W', FontCharacter {
+        width: 7,
+        height: 5,
+        data: vec![
+            "██   ██".to_string(),
+            "██   ██".to_string(),
+            "██ █ ██".to_string(),
+            "███ ███".to_string(),
+            "██   ██".to_string(),
+        ],
+    });
+    
+    // Letter X - solid blocks
+    characters.insert('X', FontCharacter {
+        width: 7,
+        height: 5,
+        data: vec![
+            "██   ██".to_string(),
+            " ██ ██ ".to_string(),
+            "  ███  ".to_string(),
+            " ██ ██ ".to_string(),
+            "██   ██".to_string(),
+        ],
+    });
+    
+    // Letter Y - solid blocks
+    characters.insert('Y', FontCharacter {
+        width: 7,
+        height: 5,
+        data: vec![
+            "██   ██".to_string(),
+            " ██ ██ ".to_string(),
+            "  ███  ".to_string(),
+            "   █   ".to_string(),
+            "   █   ".to_string(),
+        ],
+    });
+    
+    // Letter Z - solid blocks
+    characters.insert('Z', FontCharacter {
+        width: 6,
+        height: 5,
+        data: vec![
+            "██████".to_string(),
+            "   ██ ".to_string(),
+            "  ██  ".to_string(),
+            " ██   ".to_string(),
+            "██████".to_string(),
+        ],
+    });
+    
+    // Numbers 0-9 with solid blocks
+    characters.insert('0', FontCharacter {
+        width: 5,
+        height: 5,
+        data: vec![
+            " ███ ".to_string(),
+            "██ ██".to_string(),
+            "█ █ █".to_string(),
+            "██ ██".to_string(),
+            " ███ ".to_string(),
+        ],
+    });
+    
+    characters.insert('1', FontCharacter {
+        width: 3,
+        height: 5,
+        data: vec![
+            " █ ".to_string(),
+            "██ ".to_string(),
+            " █ ".to_string(),
+            " █ ".to_string(),
+            "███".to_string(),
+        ],
+    });
+    
+    characters.insert('2', FontCharacter {
+        width: 5,
+        height: 5,
+        data: vec![
+            " ███ ".to_string(),
+            "█   █".to_string(),
+            "   █ ".to_string(),
+            "  █  ".to_string(),
+            "█████".to_string(),
+        ],
+    });
+    
+    characters.insert('3', FontCharacter {
+        width: 5,
+        height: 5,
+        data: vec![
+            " ███ ".to_string(),
+            "    █".to_string(),
+            " ███ ".to_string(),
+            "    █".to_string(),
+            " ███ ".to_string(),
+        ],
+    });
+    
+    characters.insert('4', FontCharacter {
+        width: 5,
+        height: 5,
+        data: vec![
+            "█   █".to_string(),
+            "█   █".to_string(),
+            "█████".to_string(),
+            "    █".to_string(),
+            "    █".to_string(),
+        ],
+    });
+    
+    characters.insert('5', FontCharacter {
+        width: 5,
+        height: 5,
+        data: vec![
+            "█████".to_string(),
+            "█    ".to_string(),
+            "████ ".to_string(),
+            "    █".to_string(),
+            "████ ".to_string(),
+        ],
+    });
+    
+    characters.insert('6', FontCharacter {
+        width: 5,
+        height: 5,
+        data: vec![
+            " ███ ".to_string(),
+            "█    ".to_string(),
+            "████ ".to_string(),
+            "█   █".to_string(),
+            " ███ ".to_string(),
+        ],
+    });
+    
+    characters.insert('7', FontCharacter {
+        width: 5,
+        height: 5,
+        data: vec![
+            "█████".to_string(),
+            "    █".to_string(),
+            "   █ ".to_string(),
+            "  █  ".to_string(),
+            " █   ".to_string(),
+        ],
+    });
+    
+    characters.insert('8', FontCharacter {
+        width: 5,
+        height: 5,
+        data: vec![
+            " ███ ".to_string(),
+            "█   █".to_string(),
+            " ███ ".to_string(),
+            "█   █".to_string(),
+            " ███ ".to_string(),
+        ],
+    });
+    
+    characters.insert('9', FontCharacter {
+        width: 5,
+        height: 5,
+        data: vec![
+            " ███ ".to_string(),
+            "█   █".to_string(),
+            " ████".to_string(),
+            "    █".to_string(),
+            " ███ ".to_string(),
+        ],
+    });
+    
+    // Basic punctuation
+    characters.insert('!', FontCharacter {
+        width: 1,
+        height: 5,
+        data: vec![
+            "█".to_string(),
+            "█".to_string(),
+            "█".to_string(),
+            " ".to_string(),
+            "█".to_string(),
+        ],
+    });
+    
+    characters.insert('?', FontCharacter {
+        width: 5,
+        height: 5,
+        data: vec![
+            " ███ ".to_string(),
+            "    █".to_string(),
+            "  ██ ".to_string(),
+            "     ".to_string(),
+            "  █  ".to_string(),
+        ],
+    });
+    
+    characters.insert('.', FontCharacter {
+        width: 1,
+        height: 5,
+        data: vec![
+            " ".to_string(),
+            " ".to_string(),
+            " ".to_string(),
+            " ".to_string(),
+            "█".to_string(),
+        ],
+    });
+    
+    characters.insert(',', FontCharacter {
+        width: 2,
+        height: 5,
+        data: vec![
+            "  ".to_string(),
+            "  ".to_string(),
+            "  ".to_string(),
+            " █".to_string(),
+            "█ ".to_string(),
+        ],
+    });
+    
+    Font {
+        name: "standard_solid".to_string(),
+        description: "Standard solid block font without shadows".to_string(),
         height: 5,
         characters,
     }
 }
 
-/// Create a smaller font for more compact output
-fn create_small_font() -> Font {
-    let mut characters = HashMap::new();
-    
-    // Space character
-    characters.insert(' ', FontCharacter {
-        width: 2,
-        height: 3,
-        data: vec![
-            "  ".to_string(),
-            "  ".to_string(),
-            "  ".to_string(),
-        ],
-    });
-    
-    // Letter A
-    characters.insert('A', FontCharacter {
-        width: 3,
-        height: 3,
-        data: vec![
-            "██ ".to_string(),
-            "███".to_string(),
-            "█ █".to_string(),
-        ],
-    });
-    
-    // Complete the alphabet for small font
-    characters.insert('B', FontCharacter {
-        width: 3,
-        height: 3,
-        data: vec![
-            "██ ".to_string(),
-            "██ ".to_string(),
-            "██ ".to_string(),
-        ],
-    });
-    
-    characters.insert('C', FontCharacter {
-        width: 3,
-        height: 3,
-        data: vec![
-            "██ ".to_string(),
-            "█  ".to_string(),
-            "██ ".to_string(),
-        ],
-    });
-    
-    characters.insert('D', FontCharacter {
-        width: 3,
-        height: 3,
-        data: vec![
-            "██ ".to_string(),
-            "█ █".to_string(),
-            "██ ".to_string(),
-        ],
-    });
-    
-    characters.insert('E', FontCharacter {
-        width: 3,
-        height: 3,
-        data: vec![
-            "███".to_string(),
-            "██ ".to_string(),
-            "███".to_string(),
-        ],
-    });
-    
-    characters.insert('F', FontCharacter {
-        width: 3,
-        height: 3,
-        data: vec![
-            "███".to_string(),
-            "██ ".to_string(),
-            "█  ".to_string(),
-        ],
-    });
-    
-    characters.insert('G', FontCharacter {
-        width: 3,
-        height: 3,
-        data: vec![
-            "██ ".to_string(),
-            "█ █".to_string(),
-            "██ ".to_string(),
-        ],
-    });
-    
-    characters.insert('H', FontCharacter {
-        width: 3,
-        height: 3,
-        data: vec![
-            "█ █".to_string(),
-            "███".to_string(),
-            "█ █".to_string(),
-        ],
-    });
-    
-    characters.insert('I', FontCharacter {
-        width: 1,
-        height: 3,
-        data: vec![
-            "█".to_string(),
-            "█".to_string(),
-            "█".to_string(),
-        ],
-    });
-    
-    characters.insert('J', FontCharacter {
-        width: 3,
-        height: 3,
-        data: vec![
-            " ██".to_string(),
-            "  █".to_string(),
-            "██ ".to_string(),
-        ],
-    });
-    
-    characters.insert('K', FontCharacter {
-        width: 3,
-        height: 3,
-        data: vec![
-            "█ █".to_string(),
-            "██ ".to_string(),
-            "█ █".to_string(),
-        ],
-    });
-    
-    characters.insert('L', FontCharacter {
-        width: 3,
-        height: 3,
-        data: vec![
-            "█  ".to_string(),
-            "█  ".to_string(),
-            "███".to_string(),
-        ],
-    });
-    
-    characters.insert('M', FontCharacter {
-        width: 5,
-        height: 3,
-        data: vec![
-            "█   █".to_string(),
-            "█ █ █".to_string(),
-            "█   █".to_string(),
-        ],
-    });
-    
-    characters.insert('N', FontCharacter {
-        width: 3,
-        height: 3,
-        data: vec![
-            "█ █".to_string(),
-            "███".to_string(),
-            "█ █".to_string(),
-        ],
-    });
-    
-    characters.insert('O', FontCharacter {
-        width: 3,
-        height: 3,
-        data: vec![
-            "██ ".to_string(),
-            "█ █".to_string(),
-            "██ ".to_string(),
-        ],
-    });
-    
-    characters.insert('P', FontCharacter {
-        width: 3,
-        height: 3,
-        data: vec![
-            "██ ".to_string(),
-            "██ ".to_string(),
-            "█  ".to_string(),
-        ],
-    });
-    
-    characters.insert('Q', FontCharacter {
-        width: 3,
-        height: 3,
-        data: vec![
-            "██ ".to_string(),
-            "█ █".to_string(),
-            "███".to_string(),
-        ],
-    });
-    
-    characters.insert('R', FontCharacter {
-        width: 3,
-        height: 3,
-        data: vec![
-            "██ ".to_string(),
-            "██ ".to_string(),
-            "█ █".to_string(),
-        ],
-    });
-    
-    characters.insert('S', FontCharacter {
-        width: 3,
-        height: 3,
-        data: vec![
-            "██ ".to_string(),
-            " ██".to_string(),
-            "██ ".to_string(),
-        ],
-    });
-    
-    characters.insert('T', FontCharacter {
-        width: 3,
-        height: 3,
-        data: vec![
-            "███".to_string(),
-            " █ ".to_string(),
-            " █ ".to_string(),
-        ],
-    });
-    
-    characters.insert('U', FontCharacter {
-        width: 3,
-        height: 3,
-        data: vec![
-            "█ █".to_string(),
-            "█ █".to_string(),
-            "██ ".to_string(),
-        ],
-    });
-    
-    characters.insert('V', FontCharacter {
-        width: 3,
-        height: 3,
-        data: vec![
-            "█ █".to_string(),
-            "█ █".to_string(),
-            " █ ".to_string(),
-        ],
-    });
-    
-    characters.insert('W', FontCharacter {
-        width: 5,
-        height: 3,
-        data: vec![
-            "█   █".to_string(),
-            "█ █ █".to_string(),
-            " █ █ ".to_string(),
-        ],
-    });
-    
-    characters.insert('X', FontCharacter {
-        width: 3,
-        height: 3,
-        data: vec![
-            "█ █".to_string(),
-            " █ ".to_string(),
-            "█ █".to_string(),
-        ],
-    });
-    
-    characters.insert('Y', FontCharacter {
-        width: 3,
-        height: 3,
-        data: vec![
-            "█ █".to_string(),
-            " █ ".to_string(),
-            " █ ".to_string(),
-        ],
-    });
-    
-    characters.insert('Z', FontCharacter {
-        width: 3,
-        height: 3,
-        data: vec![
-            "███".to_string(),
-            " █ ".to_string(),
-            "███".to_string(),
-        ],
-    });
-    
-    // Numbers for small font
-    characters.insert('0', FontCharacter {
-        width: 3,
-        height: 3,
-        data: vec![
-            "██ ".to_string(),
-            "█ █".to_string(),
-            "██ ".to_string(),
-        ],
-    });
-    
-    characters.insert('1', FontCharacter {
-        width: 2,
-        height: 3,
-        data: vec![
-            "█ ".to_string(),
-            "█ ".to_string(),
-            "██".to_string(),
-        ],
-    });
-    
-    characters.insert('2', FontCharacter {
-        width: 3,
-        height: 3,
-        data: vec![
-            "██ ".to_string(),
-            " █ ".to_string(),
-            "███".to_string(),
-        ],
-    });
-    
-    characters.insert('3', FontCharacter {
-        width: 3,
-        height: 3,
-        data: vec![
-            "██ ".to_string(),
-            " ██".to_string(),
-            "██ ".to_string(),
-        ],
-    });
-    
-    characters.insert('4', FontCharacter {
-        width: 3,
-        height: 3,
-        data: vec![
-            "█ █".to_string(),
-            "███".to_string(),
-            "  █".to_string(),
-        ],
-    });
-    
-    characters.insert('5', FontCharacter {
-        width: 3,
-        height: 3,
-        data: vec![
-            "███".to_string(),
-            "██ ".to_string(),
-            "██ ".to_string(),
-        ],
-    });
-    
-    characters.insert('6', FontCharacter {
-        width: 3,
-        height: 3,
-        data: vec![
-            "██ ".to_string(),
-            "██ ".to_string(),
-            "██ ".to_string(),
-        ],
-    });
-    
-    characters.insert('7', FontCharacter {
-        width: 3,
-        height: 3,
-        data: vec![
-            "███".to_string(),
-            "  █".to_string(),
-            " █ ".to_string(),
-        ],
-    });
-    
-    characters.insert('8', FontCharacter {
-        width: 3,
-        height: 3,
-        data: vec![
-            "██ ".to_string(),
-            "██ ".to_string(),
-            "██ ".to_string(),
-        ],
-    });
-    
-    characters.insert('9', FontCharacter {
-        width: 3,
-        height: 3,
-        data: vec![
-            "██ ".to_string(),
-            "██ ".to_string(),
-            "██ ".to_string(),
-        ],
-    });
-    
-    // Fallback character
-    characters.insert('?', FontCharacter {
-        width: 3,
-        height: 3,
-        data: vec![
-            "██ ".to_string(),
-            " █ ".to_string(),
-            " █ ".to_string(),
-        ],
-    });
-    
-    Font {
-        name: "small".to_string(),
-        description: "Small Unicode block font".to_string(),
-        height: 3,
-        characters,
-    }
+/// Create the standard font (defaults to shadow version)
+fn create_standard_font() -> Font {
+    create_standard_shadow_font()
 }
+
+// small font removed
 
 lazy_static::lazy_static! {
     static ref FONTS: HashMap<String, Font> = {
         let mut fonts = HashMap::new();
         fonts.insert("standard".to_string(), create_standard_font());
-        fonts.insert("small".to_string(), create_small_font());
+        fonts.insert("standard_shadow".to_string(), create_standard_shadow_font());
+        fonts.insert("standard_solid".to_string(), create_standard_solid_font());
         fonts
     };
 }
@@ -989,13 +1147,3 @@ pub fn get_font(name: &str) -> Result<&Font, FontError> {
     FONTS.get(name).ok_or_else(|| FontError::FontNotFound(name.to_string()))
 }
 
-pub fn list_fonts() {
-    println!("Available fonts:");
-    for (name, font) in FONTS.iter() {
-        println!("  {:<10} - {} (height: {})", name, font.description, font.height);
-    }
-}
-
-pub fn get_available_fonts() -> Vec<String> {
-    FONTS.keys().cloned().collect()
-}

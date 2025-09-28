@@ -1,13 +1,13 @@
 [package]
-name = "unicode-figlet"
+name = "blocklet"
 version = "0.1.0"
 edition = "2021"
 authors = ["Your Name <your.email@example.com>"]
 description = "A cross-platform CLI tool that generates ASCII art using Unicode block characters"
 license = "MIT OR Apache-2.0"
 readme = "README.md"
-homepage = "https://github.com/yourusername/unicode-figlet"
-repository = "https://github.com/yourusername/unicode-figlet"
+homepage = "https://github.com/yourusername/blocklet"
+repository = "https://github.com/yourusername/blocklet"
 keywords = ["cli", "ascii-art", "figlet", "unicode", "terminal"]
 categories = ["command-line-utilities", "text-processing"]
 

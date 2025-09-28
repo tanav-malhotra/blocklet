@@ -33,6 +33,24 @@ pub fn render_text(text: &str, font_name: &str, max_width: u32, height: u32) -> 
     render_text_with_options(text, &options)
 }
 
+/// Render text with optional drop-shadow
+pub fn render_text_with_shadow(text: &str, _font_name: &str, max_width: u32, height: u32, enable_shadow: bool) -> Result<String> {
+    let font_name = if enable_shadow {
+        "standard_shadow"
+    } else {
+        "standard_solid"
+    };
+    
+    let options = RenderOptions {
+        font_name: font_name.to_string(),
+        max_width,
+        height: if enable_shadow { 6 } else { height },
+        spacing: 1,
+    };
+    
+    render_text_with_options(text, &options)
+}
+
 /// Render text with full options
 pub fn render_text_with_options(text: &str, options: &RenderOptions) -> Result<String> {
     let font = get_font(&options.font_name)
@@ -71,13 +89,13 @@ pub fn render_text_with_options(text: &str, options: &RenderOptions) -> Result<S
         // Add space before word (except for first word in line)
         if !current_line_chars.is_empty() {
             current_line_chars.push(' ');
-            current_line_width += font.get_character(' ')?.width + options.spacing;
+            current_line_width += font.get_character(' ')?.width;
         }
         
         // Add word characters
         for ch in word_chars {
             current_line_chars.push(ch);
-            current_line_width += font.get_character(ch).unwrap_or_else(|_| font.get_character('?').unwrap()).width + options.spacing;
+            current_line_width += font.get_character(ch).unwrap_or_else(|_| font.get_character('?').unwrap()).width;
         }
     }
     
@@ -112,11 +130,7 @@ fn calculate_word_width(chars: &[char], font: &crate::font::Font) -> Result<u32,
     let mut width = 0;
     for &ch in chars {
         let char_info = font.get_character(ch)?;
-        width += char_info.width + 1; // +1 for spacing
-    }
-    // Remove the last spacing
-    if width > 0 {
-        width -= 1;
+        width += char_info.width; // No spacing between characters
     }
     Ok(width)
 }
@@ -140,16 +154,9 @@ fn render_character_line(chars: &[char], font: &crate::font::Font, target_height
     // Create output lines
     let mut output_lines = vec![String::new(); render_height];
     
-    // Process each character
-    for (i, font_char) in font_chars.iter().enumerate() {
-        // Add spacing between characters (except for the first one)
-        if i > 0 {
-            for line in output_lines.iter_mut() {
-                line.push(' ');
-            }
-        }
-        
-        // Add character data to each line
+    // Process each character - no spacing between characters for shadow font
+    for font_char in font_chars.iter() {
+        // Add character data to each line (no spacing between characters)
         for (line_idx, output_line) in output_lines.iter_mut().enumerate() {
             if line_idx < font_char.data.len() {
                 output_line.push_str(&font_char.data[line_idx]);
@@ -162,6 +169,7 @@ fn render_character_line(chars: &[char], font: &crate::font::Font, target_height
     
     Ok(output_lines)
 }
+
 
 /// Render a single character (useful for testing)
 pub fn render_character(ch: char, font_name: &str) -> Result<String> {
@@ -230,10 +238,47 @@ mod tests {
     }
     
     #[test]
-    fn test_small_font() {
+    fn test_no_small_font() {
         let result = render_text("AB", "small", 0, 3);
+        assert!(result.is_err());
+    }
+    
+    #[test]
+    fn test_render_with_shadow() {
+        let result = render_text_with_shadow("HI", "standard", 0, 6, true);
         assert!(result.is_ok());
         let output = result.unwrap();
-        println!("Small font 'AB':\n{}", output);
+        assert!(output.contains("█")); // Should contain main blocks
+        assert!(output.contains("═")); // Should contain shadow blocks (box drawing)
+        println!("Text with shadow 'HI':\n{}", output);
+        
+        // Should have 6 lines for shadow
+        let lines: Vec<&str> = output.lines().collect();
+        assert_eq!(lines.len(), 6);
+    }
+    
+    #[test]
+    fn test_render_without_shadow() {
+        let result = render_text_with_shadow("HI", "standard", 0, 5, false);
+        assert!(result.is_ok());
+        let output = result.unwrap();
+        assert!(output.contains("█")); // Should contain main blocks
+        assert!(!output.contains("═")); // Should not contain shadow blocks
+        println!("Text without shadow 'HI':\n{}", output);
+        
+        // Should have 5 lines without shadow
+        let lines: Vec<&str> = output.lines().collect();
+        assert_eq!(lines.len(), 5);
+    }
+    
+    #[test]
+    fn test_shadow_offset() {
+        let result = render_text_with_shadow("A", "standard", 0, 6, true);
+        assert!(result.is_ok());
+        let output = result.unwrap();
+        let lines: Vec<&str> = output.lines().collect();
+        
+        // The shadow line (last line) should start with a space (offset)
+        assert!(lines[5].starts_with(' '));
     }
 }

@@ -18,7 +18,7 @@ fn benchmark_render_text(c: &mut Criterion) {
         ("VERY_LONG", "THIS IS A VERY LONG STRING THAT SHOULD TAKE MORE TIME TO RENDER AND ALLOWS US TO TEST THE PERFORMANCE OF OUR RENDERING ENGINE WITH EXTENDED TEXT"),
     ];
     
-    let fonts = ["standard", "small"];
+    let fonts = ["standard"];
     
     for font in fonts.iter() {
         for (size_label, text) in texts.iter() {
@@ -58,7 +58,7 @@ fn benchmark_different_fonts(c: &mut Criterion) {
     let mut group = c.benchmark_group("font_comparison");
     
     let text = "BENCHMARK TEST 123";
-    let fonts = ["standard", "small"];
+    let fonts = ["standard"];
     
     for font in fonts.iter() {
         group.bench_function(*font, |b| {

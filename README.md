@@ -1,14 +1,14 @@
-# Unicode Figlet
+# Blocklet
 
 A cross-platform CLI tool that generates ASCII art using Unicode block characters, similar to figlet but with beautiful solid Unicode blocks instead of outlines or hash symbols.
 
-[![Rust](https://github.com/yourusername/unicode-figlet/workflows/Rust/badge.svg)](https://github.com/yourusername/unicode-figlet/actions)
+[![Rust](https://github.com/yourusername/blocklet/workflows/Rust/badge.svg)](https://github.com/yourusername/blocklet/actions)
 [![License: MIT OR Apache-2.0](https://img.shields.io/badge/License-MIT%20OR%20Apache--2.0-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## ✨ Features
 
 - 🎨 **Unicode Block Characters**: Uses solid Unicode blocks (█) instead of outlines or hash symbols
-- 🔤 **Multiple Fonts**: Includes standard and small font variants
+- 🌟 **Drop-Shadow Effect**: Beautiful drop-shadows enabled by default (disable with `-n`)
 - 📏 **Text Wrapping**: Automatic word wrapping with configurable width limits
 - 🔀 **Cross-Platform**: Works on Windows, macOS, and Linux
 - ⚡ **Fast Performance**: Optimized rendering engine with comprehensive benchmarks
@@ -21,37 +21,51 @@ A cross-platform CLI tool that generates ASCII art using Unicode block character
 
 Install from crates.io:
 ```bash
-cargo install unicode-figlet
+cargo install blocklet
 ```
 
 Or build from source:
 ```bash
-git clone https://github.com/yourusername/unicode-figlet.git
-cd unicode-figlet
+git clone https://github.com/yourusername/blocklet.git
+cd blocklet
 cargo build --release
 ```
 
 ### Basic Usage
 
 ```bash
-# Simple text rendering
-unicode-figlet "Hello World"
+# Simple text rendering (with drop-shadow by default)
+blocklet "Hello World"
 
-# Using different fonts
-unicode-figlet "Compact" --font small
+# Disable drop-shadow
+blocklet "Clean Text" --no-shadow
+
+# Short form to disable shadow
+blocklet "Clean Text" -n
 
 # With width limiting (word wrapping)
-unicode-figlet "This is a long text that will wrap" --width 40
-
-# List available fonts
-unicode-figlet --list-fonts
+blocklet "This is a long text that will wrap" --width 40
 ```
 
 ## 📖 Examples
 
-### Standard Font
+### With Drop-Shadow (Default)
 ```bash
-unicode-figlet "HELLO"
+blocklet "HELLO"
+```
+Output:
+```
+█   █ ████ █    █     ███ 
+█   █ █    █    █    █   █
+█████ ███  █    █    █   █
+█   █ █    █    █    █   █
+█   █ ████ ████ ████  ███ 
+ ▓   ▓ ▓▓▓▓ ▓▓▓▓ ▓▓▓▓  ▓▓▓ 
+```
+
+### Without Drop-Shadow
+```bash
+blocklet "HELLO" -n
 ```
 Output:
 ```
@@ -62,20 +76,10 @@ Output:
 █   █ ████ ████ ████  ███ 
 ```
 
-### Small Font
-```bash
-unicode-figlet "WORLD" --font small
-```
-Output:
-```
-█   █ ██  ██  █   ██ 
-█ █ █ █ █ ██  █   █ █
- █ █  ██  █ █ ███ ██ 
-```
 
 ### With Numbers and Mixed Content
 ```bash
-unicode-figlet "CODE 2024"
+blocklet "CODE 2024"
 ```
 Output:
 ```
@@ -89,28 +93,22 @@ Output:
 ## 🔧 Command Line Options
 
 ```
-unicode-figlet [OPTIONS] <TEXT>
+blocklet [OPTIONS] <TEXT>
 
 ARGUMENTS:
     <TEXT>    The text to convert to ASCII art
 
 OPTIONS:
-    -f, --font <FONT>        Font style to use [default: standard]
     -w, --width <WIDTH>      Maximum width for output (0 = no limit) [default: 0]
-    -H, --height <HEIGHT>    Font height in characters [default: 5]
-        --list-fonts         List available fonts
+    -H, --height <HEIGHT>    Font height in characters [default: 6]
+    -n, --no-shadow          Disable drop-shadow effect
     -h, --help               Print help information
     -V, --version            Print version information
 ```
 
-## 🎨 Available Fonts
+## 🎨 Font
 
-| Font Name | Description | Height | Example |
-|-----------|-------------|--------|---------|
-| `standard` | Standard Unicode block font | 5 | █████ |
-| `small` | Compact Unicode block font | 3 | ███ |
-
-Use `unicode-figlet --list-fonts` to see all available fonts with descriptions.
+Blocklet uses a single, well-tuned `standard` Unicode block font optimized for readability.
 
 ## 🏗️ Architecture
 
@@ -118,7 +116,7 @@ Use `unicode-figlet --list-fonts` to see all available fonts with descriptions.
 
 1. **Font System** (`src/font.rs`)
    - Font character definitions using Unicode blocks
-   - Multiple font variants (standard, small)
+   - Single, readable Unicode block font (standard)
    - Character fallback system
 
 2. **Rendering Engine** (`src/renderer.rs`)
@@ -189,8 +187,8 @@ We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guid
 
 2. **Clone and build**:
    ```bash
-   git clone https://github.com/yourusername/unicode-figlet.git
-   cd unicode-figlet
+   git clone https://github.com/yourusername/blocklet.git
+   cd blocklet
    cargo build
    ```
 
@@ -226,11 +224,11 @@ at your option.
 
 ### Q: How is this different from figlet?
 
-**A**: While figlet uses ASCII characters to create outlined text, unicode-figlet uses solid Unicode block characters (█) for a more modern, filled appearance. It's designed to look better in modern terminals with Unicode support.
+**A**: While figlet uses ASCII characters to create outlined text, Blocklet uses solid Unicode block characters (█) for a more modern, filled appearance. It's designed to look better in modern terminals with Unicode support.
 
 ### Q: Does it work on all terminals?
 
-**A**: Yes, unicode-figlet works on any terminal that supports Unicode (UTF-8). This includes most modern terminals on Windows, macOS, and Linux.
+**A**: Yes, Blocklet works on any terminal that supports Unicode (UTF-8). This includes most modern terminals on Windows, macOS, and Linux.
 
 ### Q: Can I create custom fonts?
 
@@ -242,7 +240,7 @@ at your option.
 
 ### Q: How do I report bugs or request features?
 
-**A**: Please open an issue on our [GitHub repository](https://github.com/yourusername/unicode-figlet/issues).
+**A**: Please open an issue on our [GitHub repository](https://github.com/yourusername/blocklet/issues).
 
 ## 🔗 Related Projects
 
