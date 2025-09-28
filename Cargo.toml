@@ -2,12 +2,12 @@
 name = "blocklet"
 version = "0.1.0"
 edition = "2021"
-authors = ["Your Name <your.email@example.com>"]
-description = "A cross-platform CLI tool that generates ASCII art using Unicode block characters"
-license = "MIT OR Apache-2.0"
+authors = ["Tanav Malhotra <tanavm2009@gmail.com>"]
+description = "A cross-platform CLI tool that generates ASCII art using Unicode block characters, similar to figlet but with beautiful solid Unicode blocks instead of outlines or hash symbols."
+license-file = "LICENSE"
 readme = "README.md"
-homepage = "https://github.com/yourusername/blocklet"
-repository = "https://github.com/yourusername/blocklet"
+homepage = "https://github.com/tanav-malhotra/blocklet"
+repository = "https://github.com/tanav-malhotra/blocklet"
 keywords = ["cli", "ascii-art", "figlet", "unicode", "terminal"]
 categories = ["command-line-utilities", "text-processing"]
 
