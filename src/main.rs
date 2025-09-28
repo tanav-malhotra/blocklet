@@ -40,6 +40,13 @@ fn main() {
                 .help("Disable drop-shadow effect")
                 .action(clap::ArgAction::SetTrue)
         )
+        .arg(
+            Arg::new("lowercase")
+                .short('l')
+                .long("lowercase")
+                .help("Enable lowercase letters")
+                .action(clap::ArgAction::SetTrue)
+        )
         .get_matches();
 
     let text = matches.get_one::<String>("text");
@@ -51,8 +58,9 @@ fn main() {
     let width = *matches.get_one::<u32>("width").unwrap();
     let height = *matches.get_one::<u32>("height").unwrap();
     let no_shadow = matches.get_flag("no-shadow");
+    let lowercase = matches.get_flag("lowercase");
 
-    match renderer::render_text_with_shadow(text, "standard", width, height, !no_shadow) {
+    match renderer::render_text_with_options(text, "standard", width, height, !no_shadow, lowercase) {
         Ok(output) => println!("{}", output),
         Err(e) => {
             eprintln!("Error: {}", e);

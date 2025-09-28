@@ -30,7 +30,7 @@ pub fn render_text(text: &str, font_name: &str, max_width: u32, height: u32) -> 
         spacing: 1,
     };
     
-    render_text_with_options(text, &options)
+    render_text_with_options_internal(text, &options)
 }
 
 /// Render text with optional drop-shadow
@@ -48,11 +48,35 @@ pub fn render_text_with_shadow(text: &str, _font_name: &str, max_width: u32, hei
         spacing: 1,
     };
     
-    render_text_with_options(text, &options)
+    render_text_with_options_internal(text, &options)
 }
 
-/// Render text with full options
-pub fn render_text_with_options(text: &str, options: &RenderOptions) -> Result<String> {
+/// Render text with full options including lowercase
+pub fn render_text_with_options(text: &str, _font_name: &str, max_width: u32, height: u32, enable_shadow: bool, lowercase: bool) -> Result<String> {
+    let font_name = if enable_shadow {
+        "standard_shadow"
+    } else {
+        "standard_5line"
+    };
+    
+    let processed_text = if lowercase {
+        text.to_string()
+    } else {
+        text.to_ascii_uppercase()
+    };
+    
+    let options = RenderOptions {
+        font_name: font_name.to_string(),
+        max_width,
+        height: if enable_shadow { 6 } else { 5 },
+        spacing: 1,
+    };
+    
+    render_text_with_options_internal(&processed_text, &options)
+}
+
+/// Render text with full options (internal)
+fn render_text_with_options_internal(text: &str, options: &RenderOptions) -> Result<String> {
     let font = get_font(&options.font_name)
         .context(format!("Failed to load font '{}'", options.font_name))?;
     

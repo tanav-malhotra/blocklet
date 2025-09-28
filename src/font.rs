@@ -26,13 +26,26 @@ pub struct Font {
 
 impl Font {
     pub fn get_character(&self, ch: char) -> Result<&FontCharacter, FontError> {
-        // Convert to uppercase for consistency
+        // For 5-line font, try lowercase first, then uppercase
+        if self.name == "standard_5line" {
+            if let Some(char_data) = self.characters.get(&ch) {
+                return Ok(char_data);
+            }
+            // If lowercase not found, try uppercase
+            let ch_upper = ch.to_ascii_uppercase();
+            self.characters
+                .get(&ch_upper)
+                .or_else(|| self.characters.get(&'?')) // Fallback to '?' for unknown characters
+                .ok_or_else(|| FontError::CharacterNotSupported(ch, self.name.clone()))
+        } else {
+            // For other fonts, convert to uppercase for consistency
         let ch = ch.to_ascii_uppercase();
         
         self.characters
             .get(&ch)
             .or_else(|| self.characters.get(&'?')) // Fallback to '?' for unknown characters
             .ok_or_else(|| FontError::CharacterNotSupported(ch, self.name.clone()))
+        }
     }
 }
 
@@ -122,29 +135,29 @@ fn create_standard_shadow_font() -> Font {
     
     // Letter E
     characters.insert('E', FontCharacter {
-        width: 7,
+        width: 8,
         height: 6,
         data: vec![
-            "███████".to_string(),
-            "██╔════".to_string(),
-            "█████  ".to_string(),
-            "██╔══  ".to_string(),
-            "███████".to_string(),
-            "╚═════╝".to_string(),
+            "███████╗".to_string(),
+            "██╔════╝".to_string(),
+            "█████╗  ".to_string(),
+            "██╔══╝  ".to_string(),
+            "███████╗".to_string(),
+            "╚══════╝".to_string(),
         ],
     });
     
     // Letter F
     characters.insert('F', FontCharacter {
-        width: 7,
+        width: 8,
         height: 6,
         data: vec![
-            "███████".to_string(),
-            "██╔════".to_string(),
-            "█████  ".to_string(),
-            "██╔══  ".to_string(),
-            "██║    ".to_string(),
-            "╚═╝    ".to_string(),
+            "███████╗".to_string(),
+            "██╔════╝".to_string(),
+            "█████╗  ".to_string(),
+            "██╔══╝  ".to_string(),
+            "██║     ".to_string(),
+            "╚═╝     ".to_string(),
         ],
     });
     
@@ -421,22 +434,22 @@ fn create_standard_shadow_font() -> Font {
         data: vec![
             "███████╗".to_string(),
             "╚════██║".to_string(),
-            "    ██╔╝".to_string(),
             "   ██╔╝ ".to_string(),
             "  ██╔╝  ".to_string(),
-            "  ╚═╝   ".to_string(),
+            " ██╔╝   ".to_string(),
+            "███████╗".to_string(),
         ],
     });
     
     // Numbers 0-9
     characters.insert('0', FontCharacter {
-        width: 8,
+        width: 9,
         height: 6,
         data: vec![
             " ██████╗ ".to_string(),
             "██╔═══██╗".to_string(),
-            "██║██╗██║".to_string(),
-            "██║╚██╝██║".to_string(),
+            "██║   ██║".to_string(),
+            "██║   ██║".to_string(),
             "╚██████╔╝".to_string(),
             " ╚═════╝ ".to_string(),
         ],
@@ -500,21 +513,21 @@ fn create_standard_shadow_font() -> Font {
         data: vec![
             "███████╗".to_string(),
             "██╔════╝".to_string(),
-            "███████╗".to_string(),
-            "╚════██║".to_string(),
-            "███████║".to_string(),
-            "╚══════╝".to_string(),
+            "█████╗  ".to_string(),
+            "╚═══██╗ ".to_string(),
+            "█████╔╝ ".to_string(),
+            "╚════╝  ".to_string(),
         ],
     });
     
     characters.insert('6', FontCharacter {
-        width: 8,
+        width: 9,
         height: 6,
         data: vec![
             " ██████╗ ".to_string(),
             "██╔════╝ ".to_string(),
             "██████╗  ".to_string(),
-            "██╔═══██╗".to_string(),
+            "██╔══██╗ ".to_string(),
             "╚██████╔╝".to_string(),
             " ╚═════╝ ".to_string(),
         ],
@@ -525,11 +538,11 @@ fn create_standard_shadow_font() -> Font {
         height: 6,
         data: vec![
             "███████╗".to_string(),
-            "╚══════██║".to_string(),
-            "      ██╔╝".to_string(),
-            "     ██╔╝ ".to_string(),
-            "    ██╔╝  ".to_string(),
-            "    ╚═╝   ".to_string(),
+            "╚═══██╔╝".to_string(),
+            "    ██║ ".to_string(),
+            "   ██╔╝ ".to_string(),
+            "  ██╔╝  ".to_string(),
+            "  ╚═╝   ".to_string(),
         ],
     });
     
@@ -578,11 +591,11 @@ fn create_standard_shadow_font() -> Font {
         height: 6,
         data: vec![
             "██████╗ ".to_string(),
-            "╚═════██╗".to_string(),
-            "    ██╔╝".to_string(),
-            "    ╚═╝ ".to_string(),
-            "    ██╗ ".to_string(),
-            "    ╚═╝ ".to_string(),
+            "╚═══██╔╝".to_string(),
+            "   ██╔╝ ".to_string(),
+            "   ╚═╝  ".to_string(),
+            "   ██╗  ".to_string(),
+            "   ╚═╝  ".to_string(),
         ],
     });
     
@@ -607,8 +620,8 @@ fn create_standard_shadow_font() -> Font {
             "   ".to_string(),
             "   ".to_string(),
             "   ".to_string(),
-            "▄██".to_string(),
-            "▀╚═".to_string(),
+            " ██".to_string(),
+            "█╔╝".to_string(),
         ],
     });
     
@@ -655,11 +668,11 @@ fn create_standard_solid_font() -> Font {
         width: 7,
         height: 5,
         data: vec![
-            "███████ ".to_string(),
+            "██████  ".to_string(),
             "██   ██".to_string(),
             "██████ ".to_string(),
             "██   ██".to_string(),
-            "███████ ".to_string(),
+            "██████  ".to_string(),
         ],
     });
     
@@ -1160,12 +1173,166 @@ fn create_standard_font() -> Font {
 
 // small font removed
 
+/// Create the 5-line font without shadows (same blocks as shadow version)
+fn create_standard_5line_font() -> Font {
+    let mut characters = HashMap::new();
+    
+    // Space character
+    characters.insert(' ', FontCharacter {
+        width: 3,
+        height: 5,
+        data: vec![
+            "   ".to_string(),
+            "   ".to_string(),
+            "   ".to_string(),
+            "   ".to_string(),
+            "   ".to_string(),
+        ],
+    });
+    
+    // Letter A
+    characters.insert('A', FontCharacter {
+        width: 8,
+        height: 5,
+        data: vec![
+            " █████╗ ".to_string(),
+            "██╔══██╗".to_string(),
+            "███████║".to_string(),
+            "██╔══██║".to_string(),
+            "██║  ██║".to_string(),
+        ],
+    });
+    
+    // Letter B
+    characters.insert('B', FontCharacter {
+        width: 8,
+        height: 5,
+        data: vec![
+            "██████╗ ".to_string(),
+            "██╔══██╗".to_string(),
+            "██████╔╝".to_string(),
+            "██╔══██╗".to_string(),
+            "██████╔╝".to_string(),
+        ],
+    });
+    
+    // Letter C
+    characters.insert('C', FontCharacter {
+        width: 9,
+        height: 5,
+        data: vec![
+            " ██████╗ ".to_string(),
+            "██╔════╝ ".to_string(),
+            "██║      ".to_string(),
+            "██║      ".to_string(),
+            "╚██████╗ ".to_string(),
+        ],
+    });
+    
+    // Letter D
+    characters.insert('D', FontCharacter {
+        width: 8,
+        height: 5,
+        data: vec![
+            "██████╗ ".to_string(),
+            "██╔══██╗".to_string(),
+            "██║  ██║".to_string(),
+            "██║  ██║".to_string(),
+            "██████╔╝".to_string(),
+        ],
+    });
+    
+    // Letter E
+    characters.insert('E', FontCharacter {
+        width: 8,
+        height: 5,
+        data: vec![
+            "███████╗".to_string(),
+            "██╔════╝".to_string(),
+            "█████╗  ".to_string(),
+            "██╔══╝  ".to_string(),
+            "███████╗".to_string(),
+        ],
+    });
+    
+    // Letter F
+    characters.insert('F', FontCharacter {
+        width: 8,
+        height: 5,
+        data: vec![
+            "███████╗".to_string(),
+            "██╔════╝".to_string(),
+            "█████╗  ".to_string(),
+            "██╔══╝  ".to_string(),
+            "██║     ".to_string(),
+        ],
+    });
+    
+    // Lowercase letters (small versions)
+    characters.insert('a', FontCharacter {
+        width: 6,
+        height: 5,
+        data: vec![
+            "      ".to_string(),
+            " ████╗".to_string(),
+            "██╔══█".to_string(),
+            "██████".to_string(),
+            "╚═══██".to_string(),
+        ],
+    });
+    
+    characters.insert('b', FontCharacter {
+        width: 6,
+        height: 5,
+        data: vec![
+            "██    ".to_string(),
+            "██████".to_string(),
+            "██╔══█".to_string(),
+            "██████".to_string(),
+            "╚═════".to_string(),
+        ],
+    });
+    
+    characters.insert('c', FontCharacter {
+        width: 5,
+        height: 5,
+        data: vec![
+            "     ".to_string(),
+            " ████".to_string(),
+            "██   ".to_string(),
+            "██   ".to_string(),
+            " ████".to_string(),
+        ],
+    });
+    
+    // Add fallback character
+    characters.insert('?', FontCharacter {
+        width: 8,
+        height: 5,
+        data: vec![
+            "██████╗ ".to_string(),
+            "╚═══██╔╝".to_string(),
+            "   ██╔╝ ".to_string(),
+            "   ╚═╝  ".to_string(),
+            "   ██╗  ".to_string(),
+        ],
+    });
+    
+    Font {
+        name: "standard_5line".to_string(),
+        description: "Standard 5-line font without shadows".to_string(),
+        height: 5,
+        characters,
+    }
+}
+
 lazy_static::lazy_static! {
     static ref FONTS: HashMap<String, Font> = {
         let mut fonts = HashMap::new();
         fonts.insert("standard".to_string(), create_standard_font());
         fonts.insert("standard_shadow".to_string(), create_standard_shadow_font());
         fonts.insert("standard_solid".to_string(), create_standard_solid_font());
+        fonts.insert("standard_5line".to_string(), create_standard_5line_font());
         fonts
     };
 }
