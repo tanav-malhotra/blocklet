@@ -177,15 +177,15 @@ fn create_standard_shadow_font() -> Font {
     
     // Letter H
     characters.insert('H', FontCharacter {
-        width: 8,
+        width: 9,
         height: 6,
         data: vec![
             "██╗   ██╗".to_string(),
             "██║   ██║".to_string(),
-            "███████║".to_string(),
-            "██╔══██║".to_string(),
-            "██║  ██║".to_string(),
-            "╚═╝  ╚═╝".to_string(),
+            "████████║".to_string(),
+            "██╔═══██║".to_string(),
+            "██║   ██║".to_string(),
+            "╚═╝   ╚═╝".to_string(),
         ],
     });
     
@@ -378,10 +378,10 @@ fn create_standard_shadow_font() -> Font {
         data: vec![
             "██╗   ██╗".to_string(),
             "██║   ██║".to_string(),
-            "██║   ██║".to_string(),
             "╚██╗ ██╔╝".to_string(),
-            " ╚████╔╝ ".to_string(),
-            "  ╚══╝  ".to_string(),
+            " ╚██╗██╔╝".to_string(),
+            "  ╚███╔╝ ".to_string(),
+            "   ╚═╝  ".to_string(),
         ],
     });
     
@@ -513,10 +513,10 @@ fn create_standard_shadow_font() -> Font {
         data: vec![
             "███████╗".to_string(),
             "██╔════╝".to_string(),
-            "█████╗  ".to_string(),
-            "╚═══██╗ ".to_string(),
-            "█████╔╝ ".to_string(),
-            "╚════╝  ".to_string(),
+            "███████╗".to_string(),
+            "╚════██║".to_string(),
+            "██████╔╝".to_string(),
+            "╚═════╝ ".to_string(),
         ],
     });
     
