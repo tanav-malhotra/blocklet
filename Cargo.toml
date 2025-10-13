@@ -1,6 +1,6 @@
 [package]
 name = "blocklet"
-version = "0.1.2"
+version = "0.1.3"
 edition = "2021"
 authors = ["Tanav Malhotra <tanavm2009@gmail.com>"]
 description = "A cross-platform CLI tool that generates ASCII art using Unicode block characters, similar to figlet but with beautiful solid Unicode blocks instead of outlines or hash symbols."
