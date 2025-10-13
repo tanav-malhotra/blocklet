@@ -58,11 +58,18 @@ jobs:
             tar czf ${{ matrix.asset_name }}.tar.gz -C target/${{ matrix.target }}/release ${{ matrix.artifact_name }}
           fi
       
+      - name: Extract changelog for this version
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/v}
+          awk '/^## \['$VERSION'\]/{flag=1;next}/^## \[/{flag=0}flag' CHANGELOG.md > release_notes.md
+      
       - name: Upload Release Asset
         uses: softprops/action-gh-release@v1
         with:
           files: |
             ${{ matrix.asset_name }}.*
+          body_path: ${{ matrix.os == 'ubuntu-latest' && 'release_notes.md' || '' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
