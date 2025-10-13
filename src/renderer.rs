@@ -44,35 +44,29 @@ pub fn render_text_with_shadow(text: &str, _font_name: &str, max_width: u32, hei
     let options = RenderOptions {
         font_name: font_name.to_string(),
         max_width,
-        height: if enable_shadow { 6 } else { height },
+        height: if enable_shadow { 7 } else { height },
         spacing: 1,
     };
     
     render_text_with_options_internal(text, &options)
 }
 
-/// Render text with full options including lowercase
-pub fn render_text_with_options(text: &str, _font_name: &str, max_width: u32, height: u32, enable_shadow: bool, lowercase: bool) -> Result<String> {
+/// Render text with full options (deprecated - use render_text or render_text_with_shadow instead)
+pub fn render_text_with_options(text: &str, _font_name: &str, max_width: u32, height: u32, enable_shadow: bool, _lowercase: bool) -> Result<String> {
     let font_name = if enable_shadow {
         "standard_shadow"
     } else {
-        "standard_5line"
-    };
-    
-    let processed_text = if lowercase {
-        text.to_string()
-    } else {
-        text.to_ascii_uppercase()
+        "standard_solid"
     };
     
     let options = RenderOptions {
         font_name: font_name.to_string(),
         max_width,
-        height: if enable_shadow { 6 } else { 5 },
+        height: if enable_shadow { 7 } else { 5 },
         spacing: 1,
     };
     
-    render_text_with_options_internal(&processed_text, &options)
+    render_text_with_options_internal(text, &options)
 }
 
 /// Render text with full options (internal)
@@ -269,16 +263,16 @@ mod tests {
     
     #[test]
     fn test_render_with_shadow() {
-        let result = render_text_with_shadow("HI", "standard", 0, 6, true);
+        let result = render_text_with_shadow("HI", "standard", 0, 7, true);
         assert!(result.is_ok());
         let output = result.unwrap();
         assert!(output.contains("█")); // Should contain main blocks
         assert!(output.contains("═")); // Should contain shadow blocks (box drawing)
         println!("Text with shadow 'HI':\n{}", output);
         
-        // Should have 6 lines for shadow
+        // Should have 7 lines for shadow
         let lines: Vec<&str> = output.lines().collect();
-        assert_eq!(lines.len(), 6);
+        assert_eq!(lines.len(), 7);
     }
     
     #[test]
@@ -297,12 +291,13 @@ mod tests {
     
     #[test]
     fn test_shadow_offset() {
-        let result = render_text_with_shadow("A", "standard", 0, 6, true);
+        let result = render_text_with_shadow("A", "standard", 0, 7, true);
         assert!(result.is_ok());
         let output = result.unwrap();
         let lines: Vec<&str> = output.lines().collect();
         
-        // The shadow line (last line) should start with a space (offset)
-        assert!(lines[5].starts_with(' '));
+        // The shadow line (6th line) should have box drawing characters
+        assert!(lines.len() == 7);
+        assert!(lines[5].contains('═') || lines[5].contains('╝'));
     }
 }
