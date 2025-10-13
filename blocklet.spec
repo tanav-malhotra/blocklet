@@ -1,5 +1,5 @@
 Name:           blocklet
-Version:        0.1.0
+Version:        0.1.1
 Release:        1%{?dist}
 Summary:        ASCII art generator using Unicode block characters
 

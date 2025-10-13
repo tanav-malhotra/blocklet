@@ -2,7 +2,7 @@
 # yaml-language-server: $schema=https://aka.ms/winget-manifest.installer.1.6.0.schema.json
 
 PackageIdentifier: TanavMalhotra.Blocklet
-PackageVersion: 0.1.0
+PackageVersion: 0.1.1
 Platform:
 - Windows.Desktop
 MinimumOSVersion: 10.0.0.0
@@ -18,7 +18,7 @@ ReleaseDate: 2025-10-13
 Installers:
 - Architecture: x64
   InstallerType: portable
-  InstallerUrl: https://github.com/tanav-malhotra/blocklet/releases/download/v0.1.0/blocklet-windows-amd64.exe
+  InstallerUrl: https://github.com/tanav-malhotra/blocklet/releases/download/v0.1.1/blocklet-windows-amd64.exe
   InstallerSha256: <TO_BE_FILLED_AFTER_RELEASE>
 ManifestType: installer
 ManifestVersion: 1.6.0
