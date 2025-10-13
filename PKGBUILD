@@ -1,6 +1,6 @@
 # Maintainer: Tanav Malhotra <tanavm2009@gmail.com>
 pkgname=blocklet
-pkgver=0.1.2
+pkgver=0.1.3
 pkgrel=1
 pkgdesc="A cross-platform CLI tool that generates ASCII art using Unicode block characters"
 arch=('x86_64' 'aarch64')
