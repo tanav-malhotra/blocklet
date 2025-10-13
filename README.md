@@ -4,8 +4,10 @@ A cross-platform CLI tool that generates ASCII art using Unicode block character
 
 ## ✨ Features
 
-- 🎨 **Unicode Block Characters**: Uses solid Unicode blocks (█) instead of outlines or hash symbols
-- 🌟 **Drop-Shadow Effect**: Beautiful drop-shadows enabled by default (disable with `-n`)
+- 🎨 **Unicode Block Characters**: Uses solid Unicode blocks (█) and box-drawing characters for beautiful text art
+- 🌟 **Drop-Shadow Effect**: Beautiful drop-shadows enabled by default using Unicode box-drawing
+- 📝 **Multi-Line Support**: Pass multiple arguments to create multiple lines of output
+- ⬇️ **Proper Descenders**: Characters like Q, comma, and question mark extend below the baseline
 - 📏 **Text Wrapping**: Automatic word wrapping with configurable width limits
 - 🔀 **Cross-Platform**: Works on Windows, macOS, and Linux
 - ⚡ **Fast Performance**: Optimized rendering engine with comprehensive benchmarks
@@ -34,7 +36,13 @@ cargo install --path .
 # Simple text rendering (with drop-shadow by default)
 blocklet "Hello World"
 
-# Disable drop-shadow
+# Multiple arguments = multiple lines
+blocklet "Hello" "World"
+
+# Mix quoted and unquoted arguments
+blocklet "Hello World" Goodbye
+
+# Disable drop-shadow for solid characters
 blocklet "Clean Text" --no-shadow
 
 # Short form to disable shadow
@@ -42,27 +50,36 @@ blocklet "Clean Text" -n
 
 # With width limiting (word wrapping)
 blocklet "This is a long text that will wrap" --width 40
+
+# Choose different fonts
+blocklet "Stylish" --font standard_solid
 ```
 
 ## 🔧 Command Line Options
 
 ```
-blocklet [OPTIONS] <TEXT>
+blocklet [OPTIONS] <TEXT>...
 
 ARGUMENTS:
-    <TEXT>    The text to convert to ASCII art
+    <TEXT>...    The text to convert to ASCII art (multiple arguments = multiple lines)
 
 OPTIONS:
     -w, --width <WIDTH>      Maximum width for output (0 = no limit) [default: 0]
-    -H, --height <HEIGHT>    Font height in characters [default: 6]
-    -n, --no-shadow          Disable drop-shadow effect
+    -f, --font <FONT>        Font to use (standard, standard_shadow, standard_solid) [default: standard_shadow]
+    -n, --no-shadow          Use solid font without shadow (same as --font standard_solid)
     -h, --help               Print help information
     -V, --version            Print version information
 ```
 
-## 🎨 Font
+## 🎨 Fonts
 
-Blocklet uses a single, well-tuned `standard` Unicode block font optimized for readability.
+Blocklet includes three font variants:
+
+- **standard_shadow** (default): Beautiful box-drawing characters with built-in shadows and descenders (7 lines tall)
+- **standard_solid**: Clean solid blocks without shadows (5 lines tall)
+- **standard**: Alias for standard_shadow
+
+The shadow font features proper typographic descenders for characters like Q, comma, and question mark!
 
 ## 🏗️ Architecture
 

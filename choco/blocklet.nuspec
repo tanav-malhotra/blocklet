@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>blocklet</id>
+    <version>0.1.0</version>
+    <packageSourceUrl>https://github.com/tanav-malhotra/blocklet</packageSourceUrl>
+    <owners>Tanav Malhotra</owners>
+    <title>Blocklet</title>
+    <authors>Tanav Malhotra</authors>
+    <projectUrl>https://github.com/tanav-malhotra/blocklet</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/tanav-malhotra/blocklet/main/assets/icon.png</iconUrl>
+    <licenseUrl>https://github.com/tanav-malhotra/blocklet/blob/main/LICENSE</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectSourceUrl>https://github.com/tanav-malhotra/blocklet</projectSourceUrl>
+    <docsUrl>https://github.com/tanav-malhotra/blocklet/blob/main/README.md</docsUrl>
+    <bugTrackerUrl>https://github.com/tanav-malhotra/blocklet/issues</bugTrackerUrl>
+    <tags>cli ascii-art figlet terminal unicode text-art command-line</tags>
+    <summary>A cross-platform CLI tool that generates ASCII art using Unicode block characters</summary>
+    <description>
+Blocklet is a modern ASCII art generator that uses Unicode block characters to create beautiful text art. 
+
+Unlike traditional tools like figlet, Blocklet uses solid blocks and box-drawing characters for a more polished look.
+
+## Features
+- Beautiful Unicode block-based ASCII art
+- Drop shadows with box-drawing characters
+- Proper typographic descenders
+- Multi-line support
+- Automatic word wrapping
+- Cross-platform compatibility
+- Zero runtime dependencies
+    </description>
+    <releaseNotes>https://github.com/tanav-malhotra/blocklet/blob/main/CHANGELOG.md</releaseNotes>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
+

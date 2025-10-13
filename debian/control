@@ -1,0 +1,24 @@
+Source: blocklet
+Section: utils
+Priority: optional
+Maintainer: Tanav Malhotra <tanavm2009@gmail.com>
+Build-Depends: debhelper-compat (= 13), cargo, rustc
+Standards-Version: 4.6.0
+Homepage: https://github.com/tanav-malhotra/blocklet
+Vcs-Browser: https://github.com/tanav-malhotra/blocklet
+Vcs-Git: https://github.com/tanav-malhotra/blocklet.git
+Rules-Requires-Root: no
+
+Package: blocklet
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: ASCII art generator using Unicode block characters
+ Blocklet is a modern ASCII art generator that uses Unicode block
+ characters to create beautiful text art. Unlike traditional tools
+ like figlet, Blocklet uses solid blocks and box-drawing characters
+ for a more polished look.
+ .
+ Features include drop shadows, proper typographic descenders,
+ multi-line support, and automatic word wrapping. It works on any
+ terminal that supports Unicode (UTF-8).
+

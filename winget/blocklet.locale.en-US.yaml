@@ -1,0 +1,33 @@
+# Created using wingetcreate
+# yaml-language-server: $schema=https://aka.ms/winget-manifest.defaultLocale.1.6.0.schema.json
+
+PackageIdentifier: TanavMalhotra.Blocklet
+PackageVersion: 0.1.0
+PackageLocale: en-US
+Publisher: Tanav Malhotra
+PublisherUrl: https://github.com/tanav-malhotra
+PublisherSupportUrl: https://github.com/tanav-malhotra/blocklet/issues
+Author: Tanav Malhotra
+PackageName: Blocklet
+PackageUrl: https://github.com/tanav-malhotra/blocklet
+License: GPL-3.0
+LicenseUrl: https://github.com/tanav-malhotra/blocklet/blob/main/LICENSE
+ShortDescription: A cross-platform CLI tool that generates ASCII art using Unicode block characters
+Description: |-
+  Blocklet is a modern ASCII art generator that uses Unicode block characters to create
+  beautiful text art. Unlike traditional tools like figlet, Blocklet uses solid blocks
+  and box-drawing characters for a more polished look. Features include drop shadows,
+  proper typographic descenders, multi-line support, and automatic word wrapping.
+Moniker: blocklet
+Tags:
+- ascii-art
+- cli
+- figlet
+- terminal
+- unicode
+- text-art
+- command-line
+ReleaseNotesUrl: https://github.com/tanav-malhotra/blocklet/releases/tag/v0.1.0
+ManifestType: defaultLocale
+ManifestVersion: 1.6.0
+
