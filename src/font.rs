@@ -406,7 +406,7 @@ fn create_standard_shadow_font() -> Font {
             "██║███╗██║ ".to_string(),
             "╚███╔███╔╝ ".to_string(),
             " ╚══╝╚══╝  ".to_string(),
-            "            ".to_string(),
+            "           ".to_string(),
         ],
     });
     
