@@ -1,6 +1,6 @@
 [package]
 name = "blocklet"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 authors = ["Tanav Malhotra <tanavm2009@gmail.com>"]
 description = "A cross-platform CLI tool that generates ASCII art using Unicode block characters, similar to figlet but with beautiful solid Unicode blocks instead of outlines or hash symbols."
@@ -8,7 +8,7 @@ license-file = "LICENSE"
 readme = "README.md"
 homepage = "https://github.com/tanav-malhotra/blocklet"
 repository = "https://github.com/tanav-malhotra/blocklet"
-keywords = ["cli", "ascii-art", "figlet", "unicode", "terminal"]
+keywords = ["cli", "ascii-art", "blocklet", "unicode", "terminal"]
 categories = ["command-line-utilities", "text-processing"]
 
 [dependencies]

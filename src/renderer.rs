@@ -62,7 +62,7 @@ pub fn render_text_with_options(text: &str, _font_name: &str, max_width: u32, _h
     let options = RenderOptions {
         font_name: font_name.to_string(),
         max_width,
-        height: if enable_shadow { 7 } else { 5 },
+        height: 7, // Both shadow and solid are now 7 lines
         spacing: 1,
     };
     
@@ -277,16 +277,16 @@ mod tests {
     
     #[test]
     fn test_render_without_shadow() {
-        let result = render_text_with_shadow("HI", "standard", 0, 5, false);
+        let result = render_text_with_shadow("HI", "standard", 0, 7, false);
         assert!(result.is_ok());
         let output = result.unwrap();
         assert!(output.contains("█")); // Should contain main blocks
         assert!(!output.contains("═")); // Should not contain shadow blocks
         println!("Text without shadow 'HI':\n{}", output);
         
-        // Should have 5 lines without shadow
+        // Should have 7 lines without shadow (solid version is now 7 lines to match shadow)
         let lines: Vec<&str> = output.lines().collect();
-        assert_eq!(lines.len(), 5);
+        assert_eq!(lines.len(), 7);
     }
     
     #[test]

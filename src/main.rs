@@ -6,8 +6,8 @@ pub mod renderer;
 
 fn main() {
     let matches = Command::new("blocklet")
-        .version("0.1.0")
-        .author("Your Name <your.email@example.com>")
+        .version("0.1.1")
+        .author("Tanav Malhotra <tanavm2009@gmail.com>")
         .about("A cross-platform CLI tool that generates ASCII art using Unicode block characters")
         .arg(
             Arg::new("text")
@@ -63,8 +63,7 @@ fn main() {
     
     // Determine height based on font
     let height = match font_name {
-        "standard_shadow" | "standard" => 7,
-        "standard_solid" => 5,
+        "standard_shadow" | "standard" | "standard_solid" => 7,
         _ => 7, // default
     };
 
