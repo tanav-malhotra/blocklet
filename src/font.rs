@@ -100,13 +100,13 @@ fn create_standard_shadow_font() -> Font {
         width: 9,
         height: 7,
         data: vec![
-            " ██████╗ ".to_string(),
-            "██╔════╝ ".to_string(),
-            "██║      ".to_string(),
-            "██║      ".to_string(),
-            "╚██████╗ ".to_string(),
-            " ╚═════╝ ".to_string(),
-            "         ".to_string(),
+            " ██████╗".to_string(),
+            "██╔════╝".to_string(),
+            "██║     ".to_string(),
+            "██║     ".to_string(),
+            "╚██████╗".to_string(),
+            " ╚═════╝".to_string(),
+            "        ".to_string(),
         ],
     });
     
@@ -400,13 +400,13 @@ fn create_standard_shadow_font() -> Font {
         width: 11,
         height: 7,
         data: vec![
-            "██╗    ██╗ ".to_string(),
-            "██║    ██║ ".to_string(),
-            "██║ █╗ ██║ ".to_string(),
-            "██║███╗██║ ".to_string(),
-            "╚███╔███╔╝ ".to_string(),
-            " ╚══╝╚══╝  ".to_string(),
-            "           ".to_string(),
+            "██╗    ██╗".to_string(),
+            "██║    ██║".to_string(),
+            "██║ █╗ ██║".to_string(),
+            "██║███╗██║".to_string(),
+            "╚███╔███╔╝".to_string(),
+            " ╚══╝╚══╝ ".to_string(),
+            "          ".to_string(),
         ],
     });
     
@@ -415,13 +415,13 @@ fn create_standard_shadow_font() -> Font {
         width: 9,
         height: 7,
         data: vec![
-            "██╗  ██╗ ".to_string(),
-            "╚██╗██╔╝ ".to_string(),
-            " ╚███╔╝  ".to_string(),
-            " ██╔██╗  ".to_string(),
-            "██╔╝ ██╗ ".to_string(),
-            "╚═╝  ╚═╝ ".to_string(),
-            "         ".to_string(),
+            "██╗  ██╗".to_string(),
+            "╚██╗██╔╝".to_string(),
+            " ╚███╔╝ ".to_string(),
+            " ██╔██╗ ".to_string(),
+            "██╔╝ ██╗".to_string(),
+            "╚═╝  ╚═╝".to_string(),
+            "        ".to_string(),
         ],
     });
     
