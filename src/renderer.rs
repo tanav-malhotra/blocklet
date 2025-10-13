@@ -52,7 +52,7 @@ pub fn render_text_with_shadow(text: &str, _font_name: &str, max_width: u32, hei
 }
 
 /// Render text with full options (deprecated - use render_text or render_text_with_shadow instead)
-pub fn render_text_with_options(text: &str, _font_name: &str, max_width: u32, height: u32, enable_shadow: bool, _lowercase: bool) -> Result<String> {
+pub fn render_text_with_options(text: &str, _font_name: &str, max_width: u32, _height: u32, enable_shadow: bool, _lowercase: bool) -> Result<String> {
     let font_name = if enable_shadow {
         "standard_shadow"
     } else {
