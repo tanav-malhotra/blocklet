@@ -1,6 +1,6 @@
 $ErrorActionPreference = 'Stop'
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url64      = 'https://github.com/tanav-malhotra/blocklet/releases/download/v0.1.1/blocklet-windows-amd64.exe'
+$url64      = 'https://github.com/tanav-malhotra/blocklet/releases/download/v0.1.2/blocklet-windows-amd64.exe'
 
 $packageArgs = @{
   packageName   = $env:ChocolateyPackageName

@@ -2,7 +2,7 @@
 # yaml-language-server: $schema=https://aka.ms/winget-manifest.defaultLocale.1.6.0.schema.json
 
 PackageIdentifier: TanavMalhotra.Blocklet
-PackageVersion: 0.1.1
+PackageVersion: 0.1.2
 PackageLocale: en-US
 Publisher: Tanav Malhotra
 PublisherUrl: https://github.com/tanav-malhotra
@@ -27,7 +27,7 @@ Tags:
 - unicode
 - text-art
 - command-line
-ReleaseNotesUrl: https://github.com/tanav-malhotra/blocklet/releases/tag/v0.1.1
+ReleaseNotesUrl: https://github.com/tanav-malhotra/blocklet/releases/tag/v0.1.2
 ManifestType: defaultLocale
 ManifestVersion: 1.6.0
 

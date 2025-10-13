@@ -6,7 +6,7 @@ pub mod renderer;
 
 fn main() {
     let matches = Command::new("blocklet")
-        .version("0.1.1")
+        .version("0.1.2")
         .author("Tanav Malhotra <tanavm2009@gmail.com>")
         .about("A cross-platform CLI tool that generates ASCII art using Unicode block characters")
         .arg(
