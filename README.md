@@ -205,7 +205,6 @@ at your option.
 
 - [figlet](http://www.figlet.org/) - Original ASCII art text generator
 - [toilet](http://caca.zoy.org/wiki/toilet) - Another ASCII art text generator
-- [banner](https://www.unix.com/man-page/linux/1/banner/) - Classic UNIX text banner utility
 
 ## 📝 Changelog
 
